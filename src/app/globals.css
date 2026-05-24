@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background: #050505;
+    color: #f8fafc;
+  }
+}
+
+@layer utilities {
+  .surface {
+    @apply rounded-lg border border-white/10 bg-white/5 backdrop-blur;
+  }
+
+  .surface-muted {
+    @apply rounded-lg border border-white/10 bg-white/3 backdrop-blur;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center rounded-md border border-[#D4AF37]/35 bg-[#D4AF37]/15 px-5 py-3 text-sm font-medium text-[#F6E7B7] backdrop-blur hover:bg-[#D4AF37]/22 active:bg-[#D4AF37]/28;
+  }
+
+  .btn-gold-sm {
+    @apply inline-flex items-center justify-center rounded-md border border-[#D4AF37]/35 bg-[#D4AF37]/15 px-4 py-2 text-sm font-medium text-[#F6E7B7] backdrop-blur hover:bg-[#D4AF37]/22 active:bg-[#D4AF37]/28;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-md border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-100 hover:bg-white/8 active:bg-white/10;
+  }
+
+  .input-dark {
+    @apply w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40;
+  }
+
+  .select-dark {
+    @apply rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40;
+  }
+
+  .select-dark option {
+    background-color: #0b0b0b;
+    color: #f8fafc;
+  }
+
+  select option {
+    background-color: #0b0b0b;
+    color: #f8fafc;
+    text-shadow: none;
+  }
+
+  @media (forced-colors: active) {
+    select,
+    option {
+      forced-color-adjust: auto;
+    }
+  }
+}

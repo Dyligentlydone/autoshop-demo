@@ -1,0 +1,27 @@
+// Zoho CRM Custom Function: Sync Repair Order Appointment
+// This function is triggered by a workflow rule when a repair order is updated
+// It calls the webhook with the specific repair order ID to sync only that one record
+
+void syncRepairOrderAppointment(string repairOrderId)
+{
+    // Webhook URL
+    webhookUrl = "https://acmetire.up.railway.app/api/webhooks/zoho/repair-order-updated";
+    
+    // Prepare the payload with the repair order ID
+    payload = Map();
+    payload.put("id", repairOrderId);
+    
+    // Make the POST request to the webhook
+    response = invokeurl
+    [
+        url: webhookUrl
+        type: POST
+        parameters: payload.toString()
+        content-type: "application/json"
+    ];
+    
+    // Log the response for debugging
+    info "Webhook response: " + response;
+    
+    return;
+}

@@ -1,0 +1,15 @@
+{
+  "exportedAt": "2026-04-02T22:23:16.445Z",
+  "stats": {
+    "customers": 80,
+    "vehicles": 97,
+    "repairOrders": 85,
+    "attachments": 1
+  },
+  "files": {
+    "customers": "/Users/dyl/CascadeProjects/ACME TIRE/zoho-export/customers.json",
+    "vehicles": "/Users/dyl/CascadeProjects/ACME TIRE/zoho-export/vehicles.json",
+    "repairOrders": "/Users/dyl/CascadeProjects/ACME TIRE/zoho-export/repair-orders.json",
+    "attachments": "/Users/dyl/CascadeProjects/ACME TIRE/zoho-export/attachments.json"
+  }
+}

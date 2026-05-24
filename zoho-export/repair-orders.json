@@ -1,0 +1,1787 @@
+[
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-10T08:56:12-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Jacob Campbell",
+      "id": "7216537000001397001"
+    },
+    "Created_Time": "2026-03-09T10:05:38-04:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-09T18:00:00-04:00",
+    "Name": "Steering damper",
+    "Vehicle": {
+      "name": "2018",
+      "id": "7216537000001383013"
+    },
+    "Job_Description": "Install new steering damper",
+    "Note": null,
+    "id": "7216537000001399001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-10T08:58:34-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Ryan Shafor",
+      "id": "7216537000001386004"
+    },
+    "Created_Time": "2026-03-09T09:05:46-04:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-09T18:00:00-04:00",
+    "Name": "Spark plugs, Cooling system, Chassis shake",
+    "Vehicle": {
+      "name": "2017",
+      "id": "7216537000001394001"
+    },
+    "Job_Description": "Install ignition spark plugs, Coolant fans stay on (temp. sensor?) Chassis vibration (steering wheel)",
+    "Note": null,
+    "id": "7216537000001395001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-11T15:42:03-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "John Richardson",
+      "id": "7216537000001393002"
+    },
+    "Created_Time": "2026-03-09T09:46:00-04:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-09T18:00:00-04:00",
+    "Name": "Oil service, Brakes, Left front strut",
+    "Vehicle": {
+      "name": "2012",
+      "id": "7216537000001383007"
+    },
+    "Job_Description": "Engine oil service, Check and repair brakes, Left front strut assembly (broken spring?)",
+    "Note": null,
+    "id": "7216537000001385004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-09T08:41:18-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Jacob Campbell",
+      "id": "7216537000001331001"
+    },
+    "Created_Time": "2026-03-03T09:31:43-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-03T18:00:00-05:00",
+    "Name": "Serpentine belt",
+    "Vehicle": {
+      "name": "2018",
+      "id": "7216537000001332001"
+    },
+    "Job_Description": "Serpentine belt replacement due to belt squeal",
+    "Note": null,
+    "id": "7216537000001333001"
+  },
+  {
+    "Status": "In Progress",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-12T13:44:47-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Pat Ellison",
+      "id": "7216537000001299009"
+    },
+    "Created_Time": "2026-03-02T15:56:35-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-03T18:00:00-05:00",
+    "Name": "Oil leak repair at brake vacuum pump. Install gasket.",
+    "Vehicle": {
+      "name": "2016",
+      "id": "7216537000001309011"
+    },
+    "Job_Description": "Oil leak at the right bank of the engine. Brake vacuum pump gasket at fault.",
+    "Note": null,
+    "id": "7216537000001316011"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-10T08:58:42-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Cathleen Holwerda",
+      "id": "7216537000001315001"
+    },
+    "Created_Time": "2026-03-02T14:35:03-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-04T18:00:00-05:00",
+    "Name": "Vehicle driveability",
+    "Vehicle": {
+      "name": "2004",
+      "id": "7216537000001316001"
+    },
+    "Job_Description": "Chassis noise, lost reverse, more noise and hard moving forward. Issue diagnostics.",
+    "Note": null,
+    "id": "7216537000001316006"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-02T17:13:46-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Jessica Johnson",
+      "id": "7216537000001313001"
+    },
+    "Created_Time": "2026-03-02T14:24:28-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-02T18:02:00-05:00",
+    "Name": "Front End Alignment",
+    "Vehicle": {
+      "name": "2014",
+      "id": "7216537000001314001"
+    },
+    "Job_Description": "Perform front end alignment.",
+    "Note": null,
+    "id": "7216537000001304006"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-09T08:45:27-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Ryan Smith",
+      "id": "7216537000000976016"
+    },
+    "Created_Time": "2026-03-02T11:17:46-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-02T18:00:00-05:00",
+    "Name": "Brakes",
+    "Vehicle": {
+      "name": "2007",
+      "id": "7216537000001304001"
+    },
+    "Job_Description": "Rear brake issue. Left rear brake caliper stuck?",
+    "Note": null,
+    "id": "7216537000001302006"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-02T15:20:49-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Gill Hoard",
+      "id": "7216537000001077008"
+    },
+    "Created_Time": "2026-03-02T10:59:53-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-02T18:00:00-05:00",
+    "Name": "Brakes",
+    "Vehicle": {
+      "name": "2023",
+      "id": "7216537000001301004"
+    },
+    "Job_Description": "Check and repair brakes",
+    "Note": "Adam's vehicle.",
+    "id": "7216537000001302001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-09T08:45:55-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Andrei Beznochenko",
+      "id": "7216537000001296001"
+    },
+    "Created_Time": "2026-03-02T10:46:53-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-02T18:00:00-05:00",
+    "Name": "Power steering system leak",
+    "Vehicle": {
+      "name": "2012",
+      "id": "7216537000001296006"
+    },
+    "Job_Description": "Inspect and diagnose power steering system leak/fault",
+    "Note": null,
+    "id": "7216537000001297001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-02T21:37:16-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Scott Lambert",
+      "id": "7216537000001299001"
+    },
+    "Created_Time": "2026-03-02T10:54:35-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-02T18:00:00-05:00",
+    "Name": "Door locks",
+    "Vehicle": {
+      "name": "2010",
+      "id": "7216537000001300001"
+    },
+    "Job_Description": "Door locks repair",
+    "Note": null,
+    "id": "7216537000001296011"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-27T17:06:50-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "David Degraff",
+      "id": "7216537000001279002"
+    },
+    "Created_Time": "2026-02-27T14:43:55-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-27T18:01:00-05:00",
+    "Name": "Wheel bearing",
+    "Vehicle": {
+      "name": "2019",
+      "id": "7216537000001263006"
+    },
+    "Job_Description": "Right front hub and bearing assembly. Tire rotation.",
+    "Note": null,
+    "id": "7216537000001284004"
+  },
+  {
+    "Status": "Ready For Pickup",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-29T16:48:00-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "David Velzen",
+      "id": "7216537000001287005"
+    },
+    "Created_Time": "2026-02-27T17:50:33-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-03T18:00:00-05:00",
+    "Name": "Coolant leak repair",
+    "Vehicle": {
+      "name": "2015",
+      "id": "7216537000001266004"
+    },
+    "Job_Description": "Radiator assembly replacement.",
+    "Note": "Repair approved at 10:30 am by David 03/02/2026 verbal - phone",
+    "id": "7216537000001275009"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-27T14:42:11-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Meg Hackett",
+      "id": "7216537000001273001"
+    },
+    "Created_Time": "2026-02-27T11:41:18-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-27T18:00:00-05:00",
+    "Name": "Exterior mirror",
+    "Vehicle": {
+      "name": "2016",
+      "id": "7216537000001274001"
+    },
+    "Job_Description": "Right front exterior mirror assembly",
+    "Note": null,
+    "id": "7216537000001275001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-09T08:45:34-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Irena Kalenskiy",
+      "id": "7216537000000971001"
+    },
+    "Created_Time": "2026-02-27T18:42:15-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-03T18:00:00-05:00",
+    "Name": "Oil leak",
+    "Vehicle": {
+      "name": "2010",
+      "id": "7216537000000972001"
+    },
+    "Job_Description": "Transmission oil cooler lines leak, exhaust leak repair.",
+    "Note": null,
+    "id": "7216537000001268011"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-09T08:41:29-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Joe Bretz",
+      "id": "7216537000001263001"
+    },
+    "Created_Time": "2026-02-27T10:19:30-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-03-05T18:00:00-05:00",
+    "Name": "Brakes",
+    "Vehicle": {
+      "name": "2019",
+      "id": "7216537000001264001"
+    },
+    "Job_Description": "Brake master cylinder replacement.",
+    "Note": null,
+    "id": "7216537000001265001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-09T08:46:26-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Eric Brown",
+      "id": "7216537000001254009"
+    },
+    "Created_Time": "2026-02-27T10:08:08-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-27T18:00:00-05:00",
+    "Name": "Transmission cooler lines, Engine oil service",
+    "Vehicle": {
+      "name": "2020",
+      "id": "7216537000001253011"
+    },
+    "Job_Description": "Install new transmission oil cooler lines, Engine oil service.",
+    "Note": null,
+    "id": "7216537000001260001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-27T13:10:53-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Mason Pant",
+      "id": "7216537000001253006"
+    },
+    "Created_Time": "2026-02-27T10:00:49-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-27T18:00:00-05:00",
+    "Name": "Brakes",
+    "Vehicle": {
+      "name": "2023",
+      "id": "7216537000001256001"
+    },
+    "Job_Description": "Front brakes",
+    "Note": null,
+    "id": "7216537000001257001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-27T17:30:01-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Alyssa Babcock",
+      "id": "7216537000001252001"
+    },
+    "Created_Time": "2026-02-27T09:58:07-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-27T18:00:00-05:00",
+    "Name": "Tires, Front End Alignmnet",
+    "Vehicle": {
+      "name": "2017",
+      "id": "7216537000001253001"
+    },
+    "Job_Description": "Install new tires 235/50R19 Procontrol Cooper. Front End Alignment.",
+    "Note": null,
+    "id": "7216537000001254001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-27T17:50:48-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Darcy Hutchinson",
+      "id": "7216537000001258004"
+    },
+    "Created_Time": "2026-02-27T10:11:15-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-27T18:00:00-05:00",
+    "Name": "Engine oil service, EVAP diagnostics and repair",
+    "Vehicle": {
+      "name": "2014",
+      "id": "7216537000001249002"
+    },
+    "Job_Description": "Engine oil service, EVAP diagnostics and repair",
+    "Note": "Repair approval by Darcey at 1:31 pm 02/27/2026 verbal - phone",
+    "id": "7216537000001251002"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-26T14:26:40-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Rick Rothwell",
+      "id": "7216537000001222001"
+    },
+    "Created_Time": "2026-02-25T16:49:35-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-26T18:01:00-05:00",
+    "Name": "General Repair",
+    "Vehicle": {
+      "name": "2008",
+      "id": "7216537000001216004"
+    },
+    "Job_Description": "Engine oil service, Left rear wheel bearing, TPMS sensors.",
+    "Note": null,
+    "id": "7216537000001223001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-26T14:26:45-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Jackie Cook",
+      "id": "7216537000001212007"
+    },
+    "Created_Time": "2026-02-25T16:45:03-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-26T18:00:00-05:00",
+    "Name": "Engine oil service",
+    "Vehicle": {
+      "name": "2018",
+      "id": "7216537000001210009"
+    },
+    "Job_Description": "Engine oil service",
+    "Note": null,
+    "id": "7216537000001219004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-26T18:42:19-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Nathan Golds",
+      "id": "7216537000001217001"
+    },
+    "Created_Time": "2026-02-25T15:13:04-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-26T18:00:00-05:00",
+    "Name": "General service",
+    "Vehicle": {
+      "name": "2018",
+      "id": "7216537000001214004"
+    },
+    "Job_Description": "Tune-up, Cam sensor, Serpentine belt, Engine oil service.",
+    "Note": null,
+    "id": "7216537000001218001"
+  },
+  {
+    "Status": "Repair Approved",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-29T21:18:10-04:00",
+    "Scheduled_drop_off": "2026-02-20",
+    "Customer": {
+      "name": "Trevor Terpstra",
+      "id": "7216537000001127004"
+    },
+    "Created_Time": "2026-02-25T10:10:13-05:00",
+    "Estimated_Total": 0,
+    "Estimated_Completion": "2026-02-26T18:00:00-05:00",
+    "Name": "Front end repair",
+    "Vehicle": {
+      "name": "2021",
+      "id": "7216537000001210001"
+    },
+    "Job_Description": "Front end steering and/or suspension repair (hit curb?)",
+    "Note": null,
+    "id": "7216537000001211001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-24T15:12:55-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Mary Jane Henningsen",
+      "id": "7216537000001145004"
+    },
+    "Created_Time": "2026-02-24T00:40:12-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-24T18:00:00-05:00",
+    "Name": "Brakes",
+    "Vehicle": {
+      "name": "2015",
+      "id": "7216537000001165004"
+    },
+    "Job_Description": "Check and repair brakes as needed (rear?)",
+    "Note": "Approval on the repair by Mary Jayne at 8:59am 02/24/2026 verbal - phone.",
+    "id": "7216537000001169002"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-24T18:32:26-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Tom Wehling",
+      "id": "7216537000001023017"
+    },
+    "Created_Time": "2026-02-23T09:09:24-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-23T18:00:00-05:00",
+    "Name": "General Repair",
+    "Vehicle": {
+      "name": "2020",
+      "id": "7216537000001160002"
+    },
+    "Job_Description": "Brakes, Vehicle battery, Tire rotation and balance, Wiper blades.",
+    "Note": null,
+    "id": "7216537000001158006"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-24T00:16:52-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Ethan Jonker",
+      "id": "7216537000000901004"
+    },
+    "Created_Time": "2026-02-23T08:45:55-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-23T18:00:00-05:00",
+    "Name": "General repair",
+    "Vehicle": {
+      "name": "2020",
+      "id": "7216537000001157001"
+    },
+    "Job_Description": "Engine oil service, F.E.A. Tire balance and rotation.",
+    "Note": "Recommend two new tires. Approval on the repair by Ethan at 9:40am 02/23/2026 verbal - phone. Tires included.",
+    "id": "7216537000001158001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-24T15:11:50-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Rick Shupe",
+      "id": "7216537000001172001"
+    },
+    "Created_Time": "2026-02-24T00:24:21-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-24T18:00:00-05:00",
+    "Name": "Brakes",
+    "Vehicle": {
+      "name": "2015",
+      "id": "7216537000001159008"
+    },
+    "Job_Description": "Brakes grinding",
+    "Note": null,
+    "id": "7216537000001155002"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-26T14:26:32-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Trevor Terpstra",
+      "id": "7216537000001127004"
+    },
+    "Created_Time": "2026-02-20T11:20:39-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-20T18:00:00-05:00",
+    "Name": "Lights and general repair",
+    "Vehicle": {
+      "name": "2014",
+      "id": "7216537000001133001"
+    },
+    "Job_Description": "Front low beam lights. Tail lights RR. Brake check. Estimate on spark plugs. Fog lights. RF reflector. Chassis viabration.",
+    "Note": null,
+    "id": "7216537000001120002"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-23T11:59:19-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "David Desander",
+      "id": "7216537000001119001"
+    },
+    "Created_Time": "2026-02-19T15:06:12-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-20T18:00:00-05:00",
+    "Name": "General repair",
+    "Vehicle": {
+      "name": "2009",
+      "id": "7216537000001121001"
+    },
+    "Job_Description": "Chassis noise. Headlight element. Engine noise . Check belts. Engine oil service. Tire rotation.",
+    "Note": null,
+    "id": "7216537000001106008"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-23T08:43:08-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Melissa Friedenstab",
+      "id": "7216537000001104001"
+    },
+    "Created_Time": "2026-02-19T09:17:07-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-19T18:00:00-05:00",
+    "Name": "Chassis noise",
+    "Vehicle": {
+      "name": "2007",
+      "id": "7216537000001105001"
+    },
+    "Job_Description": "Vehicle chassis noise inspection (right front side?)",
+    "Note": null,
+    "id": "7216537000001106001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-20T17:35:30-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Phill Schultie",
+      "id": "7216537000001098004"
+    },
+    "Created_Time": "2026-02-18T21:36:17-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-19T18:00:00-05:00",
+    "Name": "General repair",
+    "Vehicle": {
+      "name": "2005",
+      "id": "7216537000001076009"
+    },
+    "Job_Description": "Left front and Right rear tires air slow leak repairs, Right and left front lower ball joints, Left front CV axle, Left front ABS speed sensor.",
+    "Note": null,
+    "id": "7216537000001101001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-19T17:57:34-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Rick Engvall",
+      "id": "7216537000000990001"
+    },
+    "Created_Time": "2026-02-18T11:55:08-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-19T18:00:00-05:00",
+    "Name": "No start",
+    "Vehicle": {
+      "name": "2015",
+      "id": "7216537000001088001"
+    },
+    "Job_Description": "Install new alternator, new main and aux. vehicle batteries.",
+    "Note": "Repair approved at 2:47pm by Rick 02/18/2026 verbal - phone.",
+    "id": "7216537000001089001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-23T13:58:32-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Mike Nicholson",
+      "id": "7216537000001082010"
+    },
+    "Created_Time": "2026-02-18T21:24:54-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-19T18:00:00-05:00",
+    "Name": "TPMS, Scan",
+    "Vehicle": {
+      "name": "2017",
+      "id": "7216537000001082015"
+    },
+    "Job_Description": "Computer engine scan for fault codes, Check TPMS system, Check tires for air slow leaks if TPMS system is functioning well. Tire rotation. Brake inspection.",
+    "Note": null,
+    "id": "7216537000001087005"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-19T11:53:24-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Gill Hoard",
+      "id": "7216537000001077008"
+    },
+    "Created_Time": "2026-02-18T15:25:32-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-19T18:00:00-05:00",
+    "Name": "Overheating",
+    "Vehicle": {
+      "name": "2016",
+      "id": "7216537000001079007"
+    },
+    "Job_Description": "Remove and install vehicle thermostat assembly. Approval on the repair at 3:59pm by Gill 02/18/2026 verbal - phone.",
+    "Note": "Vehicle is intermittently overheating.",
+    "id": "7216537000001085017"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-18T21:28:51-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Rich Jostin",
+      "id": "7216537000001055001"
+    },
+    "Created_Time": "2026-02-18T10:27:05-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-18T15:00:00-05:00",
+    "Name": "Tail light assembly",
+    "Vehicle": {
+      "name": "2009",
+      "id": "7216537000001044006"
+    },
+    "Job_Description": "Right rear tail light assembly, light socket, plug in connector, 2 light bulbs",
+    "Note": "Will owe for plug in connector and 1 light bulb.",
+    "id": "7216537000001084001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-19T14:48:35-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Alayna Wittmer",
+      "id": "7216537000001098009"
+    },
+    "Created_Time": "2026-02-18T22:33:28-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-19T18:00:00-05:00",
+    "Name": "Tires",
+    "Vehicle": {
+      "name": "10",
+      "id": "7216537000001099004"
+    },
+    "Job_Description": "Install new tires 195/62R15 Nordman Solstice 4  Inspect ABS system for codes (inspect wiring)",
+    "Note": null,
+    "id": "7216537000001078017"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-19T17:57:19-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Mike Chafin",
+      "id": "7216537000001092001"
+    },
+    "Created_Time": "2026-02-18T14:23:44-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-19T18:00:00-05:00",
+    "Name": "Suspension",
+    "Vehicle": {
+      "name": "2025",
+      "id": "7216537000001078004"
+    },
+    "Job_Description": "Install front end leveling kit, Install wheel spacers, Install exhaust rear tips, Front End Alignment.",
+    "Note": "Using all customer provided parts",
+    "id": "7216537000001078009"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-18T14:04:33-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Oleksander Kovalenko",
+      "id": "7216537000001082001"
+    },
+    "Created_Time": "2026-02-18T10:18:16-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-18T18:00:00-05:00",
+    "Name": "Suspension repair, engine oil service",
+    "Vehicle": {
+      "name": "2012",
+      "id": "7216537000001073003"
+    },
+    "Job_Description": "Engine oil service, Right front upper control arm, Front end alignment.",
+    "Note": null,
+    "id": "7216537000001076004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-18T21:27:43-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Patrick McGreggor",
+      "id": "7216537000001063010"
+    },
+    "Created_Time": "2026-02-17T22:02:10-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-18T18:00:00-05:00",
+    "Name": "Exhaust",
+    "Vehicle": {
+      "name": "2016",
+      "id": "7216537000001066015"
+    },
+    "Job_Description": "Check and repair exhaust system. Having loud engine bay noise.",
+    "Note": "Exhaust noise repair. Repair approved at 9:48am by Patrick 02/18/2026 verbal - phone",
+    "id": "7216537000001072001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-17T16:25:39-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "David Tuuk",
+      "id": "7216537000001047002"
+    },
+    "Created_Time": "2026-02-17T14:35:53-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-17T18:00:00-05:00",
+    "Name": "Tires",
+    "Vehicle": {
+      "name": "2014",
+      "id": "7216537000001044014"
+    },
+    "Job_Description": "Install new tires 225/60R17 Tourmax GFT2 Eldorado tires",
+    "Note": null,
+    "id": "7216537000001066004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-17T13:50:16-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Rich Jostin",
+      "id": "7216537000001055001"
+    },
+    "Created_Time": "2026-02-17T09:47:19-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-17T18:00:00-05:00",
+    "Name": "Tail/brake lights",
+    "Vehicle": {
+      "name": "2009",
+      "id": "7216537000001044006"
+    },
+    "Job_Description": "No tail lights, no right rear lower brake light.",
+    "Note": null,
+    "id": "7216537000001056001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-18T14:04:20-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Reeve Billings",
+      "id": "7216537000001058010"
+    },
+    "Created_Time": "2026-02-17T14:54:10-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-17T18:01:00-05:00",
+    "Name": "Brakes",
+    "Vehicle": {
+      "name": "2008",
+      "id": "7216537000001060004"
+    },
+    "Job_Description": "Rear brakes repair, rear brake pads, rotors, left rear brake caliper with possible left rear outer brake flex hose.",
+    "Note": "Repair approval at 3:02pm by Reeve 02/17/2026 verbal - phone.",
+    "id": "7216537000001051009"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-18T21:27:19-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Erin Bernhardt",
+      "id": "7216537000001048001"
+    },
+    "Created_Time": "2026-02-17T09:25:35-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-17T18:00:00-05:00",
+    "Name": "Exhaust, Chassis vibration, Left front headlight element.",
+    "Vehicle": {
+      "name": "2010",
+      "id": "7216537000001050001"
+    },
+    "Job_Description": "Inspect and repair exhaust system leak. Chassis vibration diagnostics and repair",
+    "Note": "Vehicle is shaking at higher speeds.",
+    "id": "7216537000001051001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-26T09:03:32-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Chris Gusky",
+      "id": "7216537000001042001"
+    },
+    "Created_Time": "2026-02-17T08:57:58-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-17T18:00:00-05:00",
+    "Name": "Oil Service, 195K inspection/service",
+    "Vehicle": {
+      "name": "2010",
+      "id": "7216537000001043001"
+    },
+    "Job_Description": "Water pump and seals, Valve cover gasket, Front brakes (pads and brake rotors)",
+    "Note": "Repair approval by Chris @10:23am 02/19/2026 verbal - phone.",
+    "id": "7216537000001044001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-24T00:17:22-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Lorane Nykin",
+      "id": "7216537000001053007"
+    },
+    "Created_Time": "2026-02-17T21:46:05-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-20T18:00:00-05:00",
+    "Name": "No start",
+    "Vehicle": {
+      "name": "2007",
+      "id": "7216537000001043006"
+    },
+    "Job_Description": "Vehicle no start repair. Truck starts but shuts down right away",
+    "Note": null,
+    "id": "7216537000001041005"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-19T17:57:29-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Tom Wehling",
+      "id": "7216537000001023017"
+    },
+    "Created_Time": "2026-02-16T22:01:12-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-17T18:00:00-05:00",
+    "Name": "Brakes",
+    "Vehicle": {
+      "name": "2019",
+      "id": "7216537000001010008"
+    },
+    "Job_Description": "Rear brake replacement.",
+    "Note": null,
+    "id": "7216537000001037004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-18T09:28:52-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Bruce Brink",
+      "id": "7216537000001032001"
+    },
+    "Created_Time": "2026-02-16T16:07:42-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-17T18:06:00-05:00",
+    "Name": "Exhaust, Battery",
+    "Vehicle": {
+      "name": "2009",
+      "id": "7216537000001033001"
+    },
+    "Job_Description": "Check and test vehicle battery. Inspect and repair exhaust system.",
+    "Note": "Repair approval at 2:29pm. 02/17/2026 verbal - phone.",
+    "id": "7216537000001034001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-16T16:43:11-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Kevin Petersen",
+      "id": "7216537000001019001"
+    },
+    "Created_Time": "2026-02-16T10:22:52-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-16T18:00:00-05:00",
+    "Name": "TPMS system",
+    "Vehicle": {
+      "name": "2007",
+      "id": "7216537000001016007"
+    },
+    "Job_Description": "Install all new TPMS sensor valve stems.",
+    "Note": null,
+    "id": "7216537000001020001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-17T08:55:17-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Tyler Lapp",
+      "id": "7216537000001014001"
+    },
+    "Created_Time": "2026-02-16T09:52:29-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-17T18:00:00-05:00",
+    "Name": "Tires",
+    "Vehicle": {
+      "name": "0",
+      "id": "7216537000001015001"
+    },
+    "Job_Description": "Install new trailer tires X 4 ST235/85R16 LRF, Install one new trailer tire LT225/75R16 LRE",
+    "Note": "Customer dripped off  just trailer tires and wheels",
+    "id": "7216537000001016001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-17T19:20:07-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Andy Bix",
+      "id": "7216537000001022001"
+    },
+    "Created_Time": "2026-02-16T10:31:50-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-16T18:00:00-05:00",
+    "Name": "Engine runability",
+    "Vehicle": {
+      "name": "2014",
+      "id": "7216537000001023001"
+    },
+    "Job_Description": "Vehicle tune-up. Remove and install ignition spark plugs and cylinder #2 ignition coil.",
+    "Note": "Vehicle is having an active engine misfire. Repair approval at 10:56am 02/16/2026 verbal - phone.",
+    "id": "7216537000001012004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-16T16:04:01-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Gene Billings",
+      "id": "7216537000000982017"
+    },
+    "Created_Time": "2026-02-13T17:01:53-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-16T18:00:00-05:00",
+    "Name": "Tire",
+    "Vehicle": {
+      "name": "0",
+      "id": "7216537000000998012"
+    },
+    "Job_Description": "Install new tire 245/60R18 Summit Trail Climber SUV2",
+    "Note": null,
+    "id": "7216537000000999008"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-29T16:45:44-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Kim Jenkins",
+      "id": "7216537000000996001"
+    },
+    "Created_Time": "2026-02-12T14:35:40-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-20T18:00:00-05:00",
+    "Name": "Install new coolant temp. sensor, install used coolant level sensor.",
+    "Vehicle": {
+      "name": "2013",
+      "id": "7216537000000991009"
+    },
+    "Job_Description": "Install new coolant temp. sensor, install used coolant level sensor.",
+    "Note": "Intermittent overheating.",
+    "id": "7216537000000997001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-12T17:06:36-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Rick Engvall",
+      "id": "7216537000000990001"
+    },
+    "Created_Time": "2026-02-12T12:39:53-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-12T18:00:00-05:00",
+    "Name": "Exhaust",
+    "Vehicle": {
+      "name": "2015",
+      "id": "7216537000000990006"
+    },
+    "Job_Description": "Rear exhaust pipe have broken off. Pipe is in the back of the vehicle. Inspect and repair exhaust system.",
+    "Note": null,
+    "id": "7216537000000991001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-16T09:41:27-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Michelle Wagner",
+      "id": "7216537000000994004"
+    },
+    "Created_Time": "2026-02-13T09:45:27-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-13T18:00:00-05:00",
+    "Name": "Exhaust, Safety inspection",
+    "Vehicle": {
+      "name": "2012",
+      "id": "7216537000001005008"
+    },
+    "Job_Description": "Inspect and repair exhaust system. Perform vehicle safety inspection.",
+    "Note": null,
+    "id": "7216537000000987009"
+  },
+  {
+    "Status": "In Progress",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-25T15:11:10-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Joel Postema",
+      "id": "7216537000000981024"
+    },
+    "Created_Time": "2026-02-13T16:13:02-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-20T18:12:00-05:00",
+    "Name": "Body paneling replacement",
+    "Vehicle": {
+      "name": "2005",
+      "id": "7216537000000993008"
+    },
+    "Job_Description": "Replace body paneling due to deer accident, repair some body structures.",
+    "Note": null,
+    "id": "7216537000000986015"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-24T00:17:16-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Ryan Smith",
+      "id": "7216537000000976016"
+    },
+    "Created_Time": "2026-02-13T11:24:00-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-16T18:00:00-05:00",
+    "Name": "Install transmission lead frame/valve body. Engine oil service.",
+    "Vehicle": {
+      "name": "2013",
+      "id": "7216537000000975017"
+    },
+    "Job_Description": "Code P0720 present. Possible fault with output shaft speed sensor. Internal sensor on transmission valve body. Engine oil service.",
+    "Note": "Using Customer supplied parts. Repair approval at 3:58pm 02/13/2026 text message.",
+    "id": "7216537000000985004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-03-09T12:09:30-04:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "TJ Thatcher",
+      "id": "7216537000000976021"
+    },
+    "Created_Time": "2026-02-13T17:30:19-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-20T18:00:00-05:00",
+    "Name": "Transmission",
+    "Vehicle": {
+      "name": "2015",
+      "id": "7216537000001005019"
+    },
+    "Job_Description": "Transmission replacement with used unit provided by customer",
+    "Note": "Warranty",
+    "id": "7216537000000979017"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-13T15:52:25-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Breanna Dubanki",
+      "id": "7216537000001005003"
+    },
+    "Created_Time": "2026-02-13T09:04:26-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-13T18:00:00-05:00",
+    "Name": "Tires",
+    "Vehicle": {
+      "name": "2022",
+      "id": "7216537000000975012"
+    },
+    "Job_Description": "Install new tires 235/45R18XL Remedy WRG5 Nokian tires. Engine oil service.",
+    "Note": null,
+    "id": "7216537000000978013"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-16T20:25:10-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Jenea Jessie",
+      "id": "7216537000000979002"
+    },
+    "Created_Time": "2026-02-12T22:24:29-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-13T18:00:00-05:00",
+    "Name": "Exhaust system repair.",
+    "Vehicle": {
+      "name": "2015",
+      "id": "7216537000001004001"
+    },
+    "Job_Description": "Check and repair exhaust system.",
+    "Note": "Exhaust leak? Repair approval at 4:28pm 02/13/2026 verbal - phone.",
+    "id": "7216537000000976008"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-13T11:18:33-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Shane Kropiewnicki",
+      "id": "7216537000000976001"
+    },
+    "Created_Time": "2026-02-12T09:46:29-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-12T18:00:00-05:00",
+    "Name": "Brakes",
+    "Vehicle": {
+      "name": "2016",
+      "id": "7216537000000977001"
+    },
+    "Job_Description": "Check and repair brakes. Rear brakes repair.",
+    "Note": null,
+    "id": "7216537000000975003"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-13T17:31:41-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Ingemar Venkus",
+      "id": "7216537000000966001"
+    },
+    "Created_Time": "2026-02-11T23:22:55-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-13T18:00:00-05:00",
+    "Name": "Mass air flow sensor, 2 ignition coils",
+    "Vehicle": {
+      "name": "2011",
+      "id": "7216537000000960009"
+    },
+    "Job_Description": "Vehicle no start diagnostics and repair. Repair approved by Ingemar @3:22pm 02/12/2026 verbal-phone.",
+    "Note": null,
+    "id": "7216537000000967001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-18T21:27:53-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Ryan Guernsey",
+      "id": "7216537000000969001"
+    },
+    "Created_Time": "2026-02-11T23:27:24-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-13T18:00:00-05:00",
+    "Name": "EGR system repair",
+    "Vehicle": {
+      "name": "2008",
+      "id": "7216537000000962005"
+    },
+    "Job_Description": "Vehicle is having continuous EGR system failures. Remove and clean EGR tube, remove and clean intake manifold assembly, replace EGR valve with new OE unit.",
+    "Note": "Possible restrictions in EGR system causing continuous failure of new EGR valves installed.",
+    "id": "7216537000000965006"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-12T20:03:56-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Gavin Morris",
+      "id": "7216537000000963001"
+    },
+    "Created_Time": "2026-02-11T23:11:29-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-12T18:00:00-05:00",
+    "Name": "Tires",
+    "Vehicle": {
+      "name": "2021",
+      "id": "7216537000000964001"
+    },
+    "Job_Description": "Install new tires on the rear of the truck. LT275/70R18 LRE Cooper Discoverer Stronghold AT",
+    "Note": "Warranty, due to tire imbalance",
+    "id": "7216537000000965001"
+  },
+  {
+    "Status": "In Progress",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-26T14:59:46-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Scott St. Antoine",
+      "id": "7216537000000959015"
+    },
+    "Created_Time": "2026-02-12T00:11:38-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-19T18:59:00-05:00",
+    "Name": "Timing and tune-up",
+    "Vehicle": {
+      "name": "2011",
+      "id": "7216537000000958002"
+    },
+    "Job_Description": "Engine noise repair. Install new timing belt and components. Install new ignition spark plugs and 2 ignition coils.",
+    "Note": "Engine noise from timing area, main concern. Engine misfire present, repair.",
+    "id": "7216537000000964012"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-13T09:43:36-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Jonathan Biggelow",
+      "id": "7216537000000959001"
+    },
+    "Created_Time": "2026-02-11T23:06:20-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-12T18:00:00-05:00",
+    "Name": "Tires",
+    "Vehicle": {
+      "name": "2007",
+      "id": "7216537000000960001"
+    },
+    "Job_Description": "Install new tires on the rear of the vehicle. 275/65R18 Eldorado Sport Fury",
+    "Note": null,
+    "id": "7216537000000961001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-24T18:33:03-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Irena Kalenskiy",
+      "id": "7216537000000971001"
+    },
+    "Created_Time": "2026-02-11T23:51:03-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-18T18:00:00-05:00",
+    "Name": "Transfer case",
+    "Vehicle": {
+      "name": "2010",
+      "id": "7216537000000972001"
+    },
+    "Job_Description": "Install used transfer case assembly. Install new areal antenna mast.",
+    "Note": "No charge for the antenna mast, possibly we broke it off when brushing vehicle off snow.",
+    "id": "7216537000000959010"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-12T12:18:18-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Brian Luxford",
+      "id": "7216537000000938009"
+    },
+    "Created_Time": "2026-02-11T13:10:40-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": null,
+    "Name": "Engine noise",
+    "Vehicle": {
+      "name": "2006",
+      "id": "7216537000000946002"
+    },
+    "Job_Description": "Engine noise at water pump, possible fault with power steering pump.",
+    "Note": "Estimate approved at 1:49pm 02/11/2026 verbal-phone",
+    "id": "7216537000000947001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-13T17:31:49-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Pete Dunkleberg",
+      "id": "7216537000000942008"
+    },
+    "Created_Time": "2026-02-11T13:58:42-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-13T18:00:00-05:00",
+    "Name": "Exhaust, ABS. Install new steering angle sensor.",
+    "Vehicle": {
+      "name": "2008",
+      "id": "7216537000000925025"
+    },
+    "Job_Description": "Exhaust repair due to excessive noise. Possible ABS system repair due to ABS pump engagement when stopping at low speeds. Repair approved at 1:30pm 02/12/2026 verbal-phone by Chase",
+    "Note": "Chase/son 616-214-1724",
+    "id": "7216537000000942013"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-11T11:52:13-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Steve O'Neal",
+      "id": "7216537000000925011"
+    },
+    "Created_Time": "2026-02-11T09:37:27-05:00",
+    "Estimated_Total": 1188,
+    "Estimated_Completion": "2026-02-11T11:00:00-05:00",
+    "Name": "Tires",
+    "Vehicle": {
+      "name": "2021",
+      "id": "7216537000000926004"
+    },
+    "Job_Description": "Install new tires 265/60R18 Nokian Remedy WRG5",
+    "Note": null,
+    "id": "7216537000000935004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-11T16:32:40-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Ross Bloch",
+      "id": "7216537000000938004"
+    },
+    "Created_Time": "2026-02-11T09:58:27-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-11T18:00:00-05:00",
+    "Name": "EVAP service",
+    "Vehicle": {
+      "name": "2014",
+      "id": "7216537000000935009"
+    },
+    "Job_Description": "EVAP system code present for small leak. Perform diagnostics and repair.",
+    "Note": "Approval on the repair @12:42 pm by Ross 02/11/2026 verbal-phone",
+    "id": "7216537000000932004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-16T20:25:15-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Scott DeYoung",
+      "id": "7216537000000931005"
+    },
+    "Created_Time": "2026-02-11T13:15:24-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-11T18:00:00-05:00",
+    "Name": "Tail light. Check if light body work can be done at our shop for light install ability.",
+    "Vehicle": {
+      "name": "2009",
+      "id": "7216537000000929010"
+    },
+    "Job_Description": "Left rear tail light replacement. Left rear of the vehicle is damaged for tail light installation. Must see if light body work can be done by us before light assembly is installed.",
+    "Note": null,
+    "id": "7216537000000928009"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-11T21:03:57-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "John Woods",
+      "id": "7216537000000928001"
+    },
+    "Created_Time": "2026-02-11T08:57:11-05:00",
+    "Estimated_Total": 634.91,
+    "Estimated_Completion": "2026-02-11T18:00:00-05:00",
+    "Name": "ABS, Maintenance",
+    "Vehicle": {
+      "name": "2017",
+      "id": "7216537000000929001"
+    },
+    "Job_Description": "Oil service transfer case. Stabilitrac and trailer brake control fault messages are on. Diagnostics and repair. Possible ABS system fault present.",
+    "Note": "Customer pre-approval at $300\nRepair approved by John @ 9:27am 02/11/2026 verbal-phone",
+    "id": "7216537000000927004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-11T08:53:25-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Brian Schulte",
+      "id": "7216537000000907007"
+    },
+    "Created_Time": "2026-02-10T16:07:37-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-11T18:00:00-05:00",
+    "Name": "Oil leak",
+    "Vehicle": {
+      "name": "2013",
+      "id": "7216537000000904015"
+    },
+    "Job_Description": "Transmission oil cooler line replacement due to the oil leak.",
+    "Note": null,
+    "id": "7216537000000913014"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-13T09:43:41-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Ethan Jonker",
+      "id": "7216537000000901004"
+    },
+    "Created_Time": "2026-02-10T12:14:00-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-11T18:00:00-05:00",
+    "Name": "Vehicle service",
+    "Vehicle": {
+      "name": "2007",
+      "id": "7216537000000893006"
+    },
+    "Job_Description": "Engine oil service. Install 2 new tires on the front, save old tires. Computer engine scan. Check TPMS sensors. Possible right front tire repair. Check and repair exhaust system.",
+    "Note": "Call Traci Jonker 616-890-2313",
+    "id": "7216537000000913001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-11T08:53:10-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Brian Lowell",
+      "id": "7216537000000903004"
+    },
+    "Created_Time": "2026-02-10T14:11:19-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-11T18:59:00-05:00",
+    "Name": "Overheating",
+    "Vehicle": {
+      "name": "2014",
+      "id": "7216537000000913006"
+    },
+    "Job_Description": "Vehicle is overheating.",
+    "Note": "Car was dropped off with cooling fans running oh high with the ignition off.",
+    "id": "7216537000000912004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-11T08:53:35-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Jordan Seaver",
+      "id": "7216537000000910001"
+    },
+    "Created_Time": "2026-02-10T11:06:51-05:00",
+    "Estimated_Total": 738.02,
+    "Estimated_Completion": "2026-02-10T18:00:00-05:00",
+    "Name": "Repair",
+    "Vehicle": {
+      "name": "2018",
+      "id": "7216537000000904010"
+    },
+    "Job_Description": "Install left front needle bearing and seal. Rotate and balance tires. Adjust tire pressures. Grease driveshafts. Right front wheel bearing and CV shaft.",
+    "Note": "Customer provided parts for right front side repair. Right front wheel bearing and right front CV axle.",
+    "id": "7216537000000905004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-10T15:19:17-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Pat Hartwell",
+      "id": "7216537000000899001"
+    },
+    "Created_Time": "2026-02-10T09:14:49-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-10T18:00:00-05:00",
+    "Name": "Maintanence",
+    "Vehicle": {
+      "name": "2012",
+      "id": "7216537000000900001"
+    },
+    "Job_Description": "Engine oil service, Tire rotation",
+    "Note": "Berry-son. Phone number for Barry 616-916-6881",
+    "id": "7216537000000894004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-10T16:56:49-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Glass Design Jeff Nelson",
+      "id": "7216537000000882001"
+    },
+    "Created_Time": "2026-02-09T14:00:46-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-10T18:00:00-05:00",
+    "Name": "Chassis repair",
+    "Vehicle": {
+      "name": "2019",
+      "id": "7216537000000883002"
+    },
+    "Job_Description": "Customer is having chassis \"clunk\" noise when driving over road bumps.",
+    "Note": "Jeff's co-worker was telling him that he most likely has a faulty control arm.",
+    "id": "7216537000000884001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-16T10:52:21-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Mike Hefferan",
+      "id": "7216537000000878001"
+    },
+    "Created_Time": "2026-02-09T11:44:10-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-11T18:00:00-05:00",
+    "Name": "Engine and Exhaust service",
+    "Vehicle": {
+      "name": "2009",
+      "id": "7216537000000879001"
+    },
+    "Job_Description": "Vehicle poor engine performance. Exhaust leak",
+    "Note": "Customer stated that vehicle was running rough few days back. At the drop off time vehicle have been running better. Exhaust leak is possibly present at flange assembly, diagnostics and repair of the exhaust leak.",
+    "id": "7216537000000877004"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-10T12:14:21-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Mike Dizirbowicz",
+      "id": "7216537000000874001"
+    },
+    "Created_Time": "2026-02-09T10:30:59-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-10T06:00:00-05:00",
+    "Name": "Oil leak, Fuel door",
+    "Vehicle": {
+      "name": "2014",
+      "id": "7216537000000869009"
+    },
+    "Job_Description": "Oil leak from the vehicle. Fuel door not operating correctly",
+    "Note": "Vehicle inspection for any oil leaks. Test fuel door for proper operation and repair as needed.",
+    "id": "7216537000000875001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-10T08:44:31-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "David Nichols",
+      "id": "7216537000000868001"
+    },
+    "Created_Time": "2026-02-09T09:59:06-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-09T11:00:00-05:00",
+    "Name": "Tires",
+    "Vehicle": {
+      "name": "2018",
+      "id": "7216537000000869001"
+    },
+    "Job_Description": "Install new set of tires. Install new tires 225/65R17 Cooper Endeavor Plus",
+    "Note": null,
+    "id": "7216537000000870001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-13T11:46:09-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "David Thompson",
+      "id": "7216537000000890001"
+    },
+    "Created_Time": "2026-02-09T14:59:26-05:00",
+    "Estimated_Total": null,
+    "Estimated_Completion": "2026-02-11T18:00:00-05:00",
+    "Name": "Brakes",
+    "Vehicle": {
+      "name": "2009",
+      "id": "7216537000000891001"
+    },
+    "Job_Description": "Soft brake pedal, customer seen the brake pad missing on the rear brakes. 2 tires on the vehicle are showing wear on the edges, recommend 2 new tires in the future.",
+    "Note": "Possible faulty",
+    "id": "7216537000000867005"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-16T09:41:36-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "David Richardson",
+      "id": "7216537000000786001"
+    },
+    "Created_Time": "2026-01-30T10:14:44-05:00",
+    "Estimated_Total": 1100,
+    "Estimated_Completion": "2026-02-13T18:00:00-05:00",
+    "Name": "Install new HVAC box assembly",
+    "Vehicle": {
+      "name": "2018",
+      "id": "7216537000000787001"
+    },
+    "Job_Description": "HVAC box removal and diagnostics on needed repair",
+    "Note": "No switching from modes on HVAC system, new blower motor resistor and mode door actuator have been installed without any system improvements. HVAC box disassembly for further diagnostics.",
+    "id": "7216537000000788001"
+  },
+  {
+    "Status": "Completed",
+    "Final_Charge_Total": null,
+    "Modified_Time": "2026-02-10T14:50:19-05:00",
+    "Scheduled_drop_off": null,
+    "Customer": {
+      "name": "Brian Deuel",
+      "id": "7216537000000774001"
+    },
+    "Created_Time": "2026-01-29T12:35:48-05:00",
+    "Estimated_Total": 125,
+    "Estimated_Completion": null,
+    "Name": "oil service, tire rotation",
+    "Vehicle": {
+      "name": "2017",
+      "id": "7216537000000774006"
+    },
+    "Job_Description": "oil service, tire rotation",
+    "Note": "Vehicle in need of engine oil service and tire rotation",
+    "id": "7216537000000762004"
+  }
+]
