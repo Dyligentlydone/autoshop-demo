@@ -86,12 +86,9 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         >
           <div className="flex items-center justify-between gap-2 px-4 py-4">
             <a className="flex items-center" href="/">
-              <Image
-                src={logo}
-                alt="AutoShop Demo"
-                priority
-                className={collapsed && !isCompact ? 'h-8 w-auto' : 'h-9 w-auto'}
-              />
+              <span className="text-sm font-semibold tracking-wide text-[#d7b73f]">
+                Demo
+              </span>
             </a>
             <button
               type="button"
