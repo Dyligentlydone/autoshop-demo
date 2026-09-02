@@ -6,6 +6,8 @@ export type EstimateData = {
   estimatedTotal?: number;
   estimatedCompletion?: string;
   photoUrls?: string[];
+  videoUrls?: string[];
+  approvalUrl?: string;
 };
 
 export const formatEstimateMessage = ({
@@ -14,6 +16,7 @@ export const formatEstimateMessage = ({
   estimatedTotal,
   estimatedCompletion,
   photoUrls,
+  videoUrls,
 }: EstimateData) => {
   const parts = [
     `Hi ${customerName}!`,
@@ -38,15 +41,16 @@ export const formatEstimateMessage = ({
   }
 
   if (photoUrls && photoUrls.length > 0) {
-    parts.push(``, `📸 ${photoUrls.length} photo(s) attached`);
+    parts.push(``, `📸 ${photoUrls.length} photo${photoUrls.length === 1 ? '' : 's'} on approval link`);
   }
 
-  parts.push(
-    ``,
-    `Questions? Reply to this message or call us!`,
-    ``,
-    `- AutoShop Demo`
-  );
+  if (videoUrls && videoUrls.length > 0) {
+    parts.push(
+      // Only blank line before video count if no photos already added a blank
+      ...(photoUrls && photoUrls.length > 0 ? [] : ['']),
+      `🎥 ${videoUrls.length} video${videoUrls.length === 1 ? '' : 's'} on approval link`
+    );
+  }
 
   return parts.join('\n');
 };

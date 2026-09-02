@@ -13,7 +13,7 @@ export default function ServiceStats() {
     );
   }
 
-  const items = data || [];
+  const items = data?.data || [];
 
   // Count by status - only count "actively servicing" statuses
   const statusCounts: Record<string, number> = {};

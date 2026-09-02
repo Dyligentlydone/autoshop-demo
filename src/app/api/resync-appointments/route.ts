@@ -60,7 +60,7 @@ export async function POST() {
             service_type: ro.service_type,
             scheduled_datetime: ro.estimated_completion,
             status: appointmentStatus,
-            ro_status: ro.status,
+            zoho_status: ro.status,
             appointment_type: 'estimated_completion',
           }, {
             onConflict: 'repair_order_id,appointment_type',
@@ -80,7 +80,7 @@ export async function POST() {
             service_type: ro.service_type,
             scheduled_datetime: ro.scheduled_drop_off,
             status: 'scheduled',
-            ro_status: ro.status,
+            zoho_status: ro.status,
             appointment_type: 'scheduled_drop_off',
           }, {
             onConflict: 'repair_order_id,appointment_type',

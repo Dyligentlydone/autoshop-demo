@@ -153,7 +153,7 @@ export default function GlobalSearch({
         </div>
 
         {open ? (
-          <div className="absolute left-0 right-0 top-full z-10 mt-2 overflow-hidden rounded-lg border border-white/10 bg-black/80 backdrop-blur">
+          <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-lg border border-white/15 bg-[#111111] shadow-xl shadow-black/60">
             <div className="max-h-[70vh] overflow-auto p-2">
               {!value.trim() ? (
                 <div className="px-3 py-2 text-sm text-slate-300">Start typing to search…</div>

@@ -21,6 +21,7 @@ type SendEstimateModalProps = {
     phone: string;
   };
   photoUrls?: string[];
+  videoUrls?: string[];
 };
 
 export default function SendEstimateModal({
@@ -29,14 +30,44 @@ export default function SendEstimateModal({
   repairOrder,
   customer,
   photoUrls = [],
+  videoUrls = [],
 }: SendEstimateModalProps) {
   const sendSMS = useSendSMS();
   const [phoneNumber, setPhoneNumber] = useState(customer.phone || '');
   const [messageBody, setMessageBody] = useState('');
-  const [includePhotos, setIncludePhotos] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
+  const [approvalUrl, setApprovalUrl] = useState<string>('');
+  const [generatingToken, setGeneratingToken] = useState(false);
 
   const customerName = `${customer.first_name} ${customer.last_name}`.trim();
+
+  // Generate real approval token when modal opens
+  useEffect(() => {
+    if (isOpen && !approvalUrl) {
+      setGeneratingToken(true);
+      fetch('/api/approval-tokens/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          repairOrderId: repairOrder.id,
+          customerId: customer.id,
+          expiryDays: 30,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.approvalUrl) {
+            setApprovalUrl(data.approvalUrl);
+          }
+        })
+        .catch((err) => {
+          console.error('Failed to generate approval token:', err);
+        })
+        .finally(() => {
+          setGeneratingToken(false);
+        });
+    }
+  }, [isOpen, approvalUrl, repairOrder.id, customer.id]);
 
   // Generate preview message
   useEffect(() => {
@@ -46,11 +77,14 @@ export default function SendEstimateModal({
         serviceType: repairOrder.service_type || 'service',
         estimatedTotal: repairOrder.estimated_total,
         estimatedCompletion: repairOrder.estimated_completion,
-        photoUrls: includePhotos ? photoUrls : [],
+        photoUrls,
+        videoUrls,
       });
+      
+      // Approval link is added by the API, not here (prevents duplication)
       setMessageBody(preview);
     }
-  }, [customerName, repairOrder, photoUrls, includePhotos, isEditing]);
+  }, [customerName, repairOrder, photoUrls, videoUrls, isEditing]);
 
   const handleSend = async () => {
     if (!phoneNumber.trim()) {
@@ -71,7 +105,9 @@ export default function SendEstimateModal({
           serviceType: repairOrder.service_type || 'service',
           estimatedTotal: repairOrder.estimated_total,
           estimatedCompletion: repairOrder.estimated_completion,
-          photoUrls: includePhotos ? photoUrls : [],
+          photoUrls,
+          videoUrls,
+          approvalUrl, // Pass the pre-generated approval URL
         },
       });
 
@@ -130,37 +166,65 @@ export default function SendEstimateModal({
           />
         </div>
 
-        {/* Photos Section */}
-        {photoUrls.length > 0 && (
-          <div className="mb-4">
-            <label className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                checked={includePhotos}
-                onChange={(e) => {
-                  setIncludePhotos(e.target.checked);
-                  setIsEditing(false);
-                }}
-                className="h-4 w-4 rounded border-[#D4AF37]/25 bg-[#D4AF37]/8 text-[#D4AF37] focus:ring-[#D4AF37]/40"
-              />
-              <span className="text-sm text-slate-300">
-                Include {photoUrls.length} photo{photoUrls.length !== 1 ? 's' : ''} (MMS)
-              </span>
-            </label>
-            {includePhotos && (
-              <div className="mt-3 grid grid-cols-4 gap-2">
+        {/* Media Section — informational only (lives on the approval page) */}
+        {(photoUrls.length > 0 || videoUrls.length > 0) && (
+          <div className="mb-4 space-y-3 rounded-lg border border-white/10 bg-white/5 p-3">
+            <div className="text-sm text-slate-300">
+              {photoUrls.length > 0 && (
+                <span>
+                  📸 {photoUrls.length} photo{photoUrls.length !== 1 ? 's' : ''}
+                </span>
+              )}
+              {photoUrls.length > 0 && videoUrls.length > 0 && <span> · </span>}
+              {videoUrls.length > 0 && (
+                <span>
+                  🎥 {videoUrls.length} video{videoUrls.length !== 1 ? 's' : ''}
+                </span>
+              )}{' '}
+              will be viewable on the customer's link
+              <span className="ml-1 text-xs text-slate-500">(not sent as MMS)</span>
+            </div>
+
+            {photoUrls.length > 0 && (
+              <div className="grid grid-cols-4 gap-2">
                 {photoUrls.map((url, i) => (
                   <div
-                    key={i}
+                    key={`p-${i}`}
                     className="relative overflow-hidden rounded-lg border border-white/10 bg-black/30"
                   >
                     <div className="aspect-square">
                       <img
                         src={url}
-                        alt={`Attachment ${i + 1}`}
+                        alt={`Photo ${i + 1}`}
                         className="h-full w-full object-cover"
                         loading="lazy"
                       />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {videoUrls.length > 0 && (
+              <div className="grid grid-cols-4 gap-2">
+                {videoUrls.map((url, i) => (
+                  <div
+                    key={`v-${i}`}
+                    className="relative overflow-hidden rounded-lg border border-white/10 bg-black/30"
+                  >
+                    <div className="aspect-square bg-black">
+                      <video
+                        src={url}
+                        className="h-full w-full object-cover"
+                        preload="metadata"
+                        muted
+                        playsInline
+                      />
+                      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-sm text-white">
+                          ▶
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -195,6 +259,23 @@ export default function SendEstimateModal({
           <div className="mt-1 text-xs text-slate-400">
             {messageBody.length} characters
           </div>
+          
+          {/* Clickable Approval Link Preview */}
+          {approvalUrl && (
+            <div className="mt-3 rounded-lg border border-green-500/30 bg-green-500/10 p-3">
+              <div className="mb-1 text-xs font-medium text-green-400">
+                ✓ Approval Link (click to test):
+              </div>
+              <a
+                href={approvalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block break-all text-sm text-blue-400 underline hover:text-blue-300"
+              >
+                {approvalUrl}
+              </a>
+            </div>
+          )}
         </div>
 
         {/* Estimate Details Summary */}
@@ -215,9 +296,14 @@ export default function SendEstimateModal({
                 {new Date(repairOrder.estimated_completion).toLocaleDateString()}
               </div>
             )}
-            {includePhotos && photoUrls.length > 0 && (
+            {photoUrls.length > 0 && (
               <div>
-                <span className="text-slate-400">Photos:</span> {photoUrls.length} attached
+                <span className="text-slate-400">Photos:</span> {photoUrls.length} on approval link
+              </div>
+            )}
+            {videoUrls.length > 0 && (
+              <div>
+                <span className="text-slate-400">Videos:</span> {videoUrls.length} on approval link
               </div>
             )}
           </div>

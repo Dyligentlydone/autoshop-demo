@@ -22,3 +22,7 @@ yarn-error.log*
 
 # misc
 *.tsbuildinfo
+
+# env backups
+.env.local.backup*
+.env.*.backup*

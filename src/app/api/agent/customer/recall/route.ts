@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
 
         // Build greeting suggestion for repeat Supabase customers
         const customerName = latest.customer_name?.split(' ')[0] ?? 'there';
-        let greetingSuggestion = `Thank you for calling AutoShop Demo, this is Diligent! Hey ${customerName}! Great to hear from you again.`;
+        let greetingSuggestion = `Thank you for calling Demo Auto Shop, this is the assistant! Hey ${customerName}! Great to hear from you again.`;
         if (vehicle) {
             greetingSuggestion += ` Hope the ${vehicle} is running good!`;
         }
@@ -159,7 +159,7 @@ export async function POST(req: NextRequest) {
 
         // Build greeting suggestion for CRM customers (first call)
         const firstName = crmCustomer.first_name || 'there';
-        const greetingSuggestion = `Thank you for calling AutoShop Demo, this is Diligent! How's it going ${firstName}, what can I help you with today?`;
+        const greetingSuggestion = `Thank you for calling Demo Auto Shop, this is the assistant! How's it going ${firstName}, what can I help you with today?`;
 
         // Return basic CRM data (no personality notes, no call history)
         return NextResponse.json({

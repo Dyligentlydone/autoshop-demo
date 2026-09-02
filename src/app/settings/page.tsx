@@ -33,7 +33,7 @@ export default function SettingsPage() {
   const [taxEnabled, setTaxEnabled] = useState(true);
   const [standardMarkup, setStandardMarkup] = useState('30');
   const [premiumMarkup, setPremiumMarkup] = useState('50');
-  const [companyName, setCompanyName] = useState('AutoShop Demo');
+  const [companyName, setCompanyName] = useState('Demo Auto Shop');
   const [companyAddress, setCompanyAddress] = useState('');
   const [companyPhone, setCompanyPhone] = useState('');
   const [companyEmail, setCompanyEmail] = useState('');
@@ -196,7 +196,7 @@ export default function SettingsPage() {
                 value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
                 className="w-full rounded border border-slate-700 bg-slate-800 px-4 py-2 text-slate-100"
-                placeholder="AutoShop Demo"
+                placeholder="Demo Auto Shop"
               />
             </div>
             <div>
@@ -227,7 +227,7 @@ export default function SettingsPage() {
                   value={companyEmail}
                   onChange={(e) => setCompanyEmail(e.target.value)}
                   className="w-full rounded border border-slate-700 bg-slate-800 px-4 py-2 text-slate-100"
-                  placeholder="info@acmetire.com"
+                  placeholder="info@demoautoshop.com"
                 />
               </div>
             </div>

@@ -1,10 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
-
-import logo from '/public/logo.png';
 import GlobalSearch from '@/components/global-search';
 
 type NavItem = {
@@ -19,8 +16,76 @@ const COMPACT_BREAKPOINT = 1024;
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const [collapsed, setCollapsed] = useState(true);
   const [isCompact, setIsCompact] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
+  const [voicemailUnreadCount, setVoicemailUnreadCount] = useState(0);
+  const [waitingApprovalCount, setWaitingApprovalCount] = useState(0);
   const pathname = usePathname();
   const router = useRouter();
+
+  // Poll unread SMS count every 15s
+  useEffect(() => {
+    let cancelled = false;
+    const fetchUnread = async () => {
+      try {
+        const res = await fetch('/api/sms/unread-count', { cache: 'no-store' });
+        if (!res.ok) return;
+        const json = await res.json();
+        if (!cancelled) setUnreadCount(json?.count ?? 0);
+      } catch {
+        // silently ignore polling errors
+      }
+    };
+    fetchUnread();
+    const interval = setInterval(fetchUnread, 15000);
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+    };
+  }, []);
+
+  // Poll voicemail unread count every 30s
+  useEffect(() => {
+    let cancelled = false;
+    const fetchVoicemailUnread = async () => {
+      try {
+        const res = await fetch('/api/voicemails', { cache: 'no-store' });
+        if (!res.ok) return;
+        const json = await res.json();
+        const data = json?.data || [];
+        const count = data.filter((v: any) => v.status === 'new' || v.status === 'transcribed').length;
+        if (!cancelled) setVoicemailUnreadCount(count);
+      } catch {
+        // silently ignore
+      }
+    };
+    fetchVoicemailUnread();
+    const interval = setInterval(fetchVoicemailUnread, 30000);
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+    };
+  }, []);
+
+  // Poll waiting approval repair order count every 15s
+  useEffect(() => {
+    let cancelled = false;
+    const fetchWaiting = async () => {
+      try {
+        const res = await fetch('/api/crm/repair-orders/waiting-approval-count', { cache: 'no-store' });
+        if (!res.ok) return;
+        const json = await res.json();
+        if (!cancelled) setWaitingApprovalCount(json?.count ?? 0);
+      } catch {
+        // silently ignore polling errors
+      }
+    };
+    fetchWaiting();
+    const interval = setInterval(fetchWaiting, 15000);
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+    };
+  }, []);
 
   // Detect viewport size and default collapsed on small/tablet screens.
   useEffect(() => {
@@ -44,6 +109,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
   const isDashboard = pathname === '/dashboard';
 
+  const isDev = process.env.NODE_ENV !== 'production';
+
   const items: NavItem[] = useMemo(
     () => [
       { label: 'Command Center', href: '/' },
@@ -53,9 +120,17 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       { label: 'New repair', href: '/repair-orders/new' },
       { label: 'Communications', href: '/communications' },
       { label: 'Settings', href: '/settings' },
+      ...(isDev ? [{ label: 'Assistant', href: '/assistant' }] : []),
     ],
-    []
+    [isDev]
   );
+
+  // Public pages (customer-facing) bypass the app shell entirely.
+  // Match /approve exactly or /approve/* but NOT /approved/* (internal staff page).
+  const isPublicPage = pathname === '/approve' || pathname?.startsWith('/approve/');
+  if (isPublicPage) {
+    return <>{children}</>;
+  }
 
   // Overlay mode: when compact + expanded, sidebar floats over content.
   const overlayOpen = isCompact && !collapsed;
@@ -86,8 +161,14 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         >
           <div className="flex items-center justify-between gap-2 px-4 py-4">
             <a className="flex items-center" href="/">
-              <span className="text-sm font-semibold tracking-wide text-[#d7b73f]">
-                Demo
+              <span
+                className={
+                  'font-bold tracking-tight ' +
+                  (collapsed && !isCompact ? 'text-sm' : 'text-base')
+                }
+                style={{ color: '#d7b73f' }}
+              >
+                {collapsed && !isCompact ? 'DAS' : 'Demo Auto Shop'}
               </span>
             </a>
             <button
@@ -112,12 +193,19 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             {items.map((item) => {
               const active = pathname === item.href;
               const showFull = !collapsed || isCompact;
+              const isCommunications = item.href === '/communications';
+              const isRepairOrders = item.href === '/repair-orders';
+              const commsBadgeCount = unreadCount + voicemailUnreadCount;
+              const showBadge =
+                (isCommunications && commsBadgeCount > 0) ||
+                (isRepairOrders && waitingApprovalCount > 0);
+              const badgeCount = isCommunications ? commsBadgeCount : isRepairOrders ? waitingApprovalCount : 0;
               return (
                 <a
                   key={item.href}
                   href={item.href}
                   className={
-                    'flex items-center rounded-full px-3 py-2 text-sm font-medium transition ' +
+                    'flex items-center justify-between rounded-full px-3 py-2 text-sm font-medium transition ' +
                     (active
                       ? 'bg-[#d7b73f]/15'
                       : 'hover:bg-[#d7b73f]/10 active:bg-[#d7b73f]/15')
@@ -130,6 +218,21 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
                 >
                   <span className={showFull ? 'truncate' : 'sr-only'}>{item.label}</span>
                   {!showFull ? <span className="mx-auto">•</span> : null}
+                  {showBadge && showFull ? (
+                    <span
+                      className={
+                        'ml-2 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full px-1.5 text-[11px] font-medium ring-1 ring-inset ' +
+                        (isRepairOrders
+                          ? 'bg-violet-500/15 text-violet-200 ring-violet-400/25'
+                          : voicemailUnreadCount > 0 && isCommunications
+                          ? 'bg-red-500/20 text-red-300 ring-red-500/30'
+                          : 'bg-[#d7b73f]/15 text-[#d7b73f] ring-[#d7b73f]/25')
+                      }
+                      aria-label={`${badgeCount} ${isCommunications ? 'unread messages' : 'waiting approval'}`}
+                    >
+                      {badgeCount > 99 ? '99+' : badgeCount}
+                    </span>
+                  ) : null}
                 </a>
               );
             })}

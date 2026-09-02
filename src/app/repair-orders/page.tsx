@@ -12,6 +12,7 @@ import { useUploadAttachment } from '@/hooks/use-upload-attachment';
 import { useDeleteAttachment } from '@/hooks/use-delete-attachment';
 import { useDeleteRepairOrder } from '@/hooks/use-delete-repair-order';
 import GlobalSearch from '@/components/global-search';
+import OfflineBanner from '@/components/OfflineBanner';
 import { useFailedBookings } from '@/hooks/use-failed-bookings';
 import { apiClient } from '@/lib/api-client';
 import { useQueryClient } from '@tanstack/react-query';
@@ -52,6 +53,8 @@ const statusBadgeClasses = (status: RepairOrderStatus) => {
       return 'bg-violet-500/15 text-violet-200 ring-violet-400/25';
     case 'Repair Approved':
       return 'bg-yellow-400/25 text-yellow-100 ring-yellow-300/50';
+    case 'Awaiting Parts':
+      return 'bg-amber-500/20 text-amber-100 ring-amber-400/40';
     case 'In Progress':
       return 'bg-lime-500/15 text-lime-200 ring-lime-400/25';
     case 'Ready For Pickup':
@@ -70,6 +73,7 @@ const STATUS_OPTIONS: Array<RepairOrderStatus | 'All'> = [
   'Diagnosing',
   'Waiting Approval',
   'Repair Approved',
+  'Awaiting Parts',
   'In Progress',
   'Ready For Pickup',
   'Completed',
@@ -81,6 +85,7 @@ const RO_STATUS_OPTIONS: RepairOrderStatus[] = [
   'Diagnosing',
   'Waiting Approval',
   'Repair Approved',
+  'Awaiting Parts',
   'In Progress',
   'Ready For Pickup',
   'Completed',
@@ -112,6 +117,7 @@ const RepairOrderRow = ({
   const uploadAttachment = useUploadAttachment(item.repairOrder.id);
   const deleteAttachment = useDeleteAttachment(item.repairOrder.id);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const videoInputRef = useRef<HTMLInputElement>(null);
   const [showPhotos, setShowPhotos] = useState(false);
   const [status, setStatus] = useState<RepairOrderStatus>(item.repairOrder.status);
   const [serviceType, setServiceType] = useState(item.repairOrder.service_type || '');
@@ -482,6 +488,15 @@ const RepairOrderRow = ({
                 </button>
                 <button
                   type="button"
+                  onClick={() => videoInputRef.current?.click()}
+                  className="rounded-full bg-[#D4AF37]/10 px-3 py-1.5 text-xs font-semibold hover:bg-[#D4AF37]/20"
+                  style={{ color: '#d7b73f' }}
+                  disabled={uploadAttachment.isPending}
+                >
+                  {uploadAttachment.isPending ? 'Uploading...' : '+ Add Videos'}
+                </button>
+                <button
+                  type="button"
                   onClick={() => setShowPhotos(!showPhotos)}
                   className="rounded-full bg-white/5 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:bg-white/10"
                 >
@@ -492,6 +507,14 @@ const RepairOrderRow = ({
                 ref={fileInputRef}
                 type="file"
                 accept="image/*"
+                multiple
+                className="hidden"
+                onChange={(e) => handleFileSelect(e.target.files)}
+              />
+              <input
+                ref={videoInputRef}
+                type="file"
+                accept="video/*"
                 multiple
                 className="hidden"
                 onChange={(e) => handleFileSelect(e.target.files)}
@@ -508,18 +531,31 @@ const RepairOrderRow = ({
                   <div className="text-center text-xs text-slate-400">No photos yet</div>
                 ) : (
                   <div className="grid grid-cols-3 gap-2 md:grid-cols-4">
-                    {attachments.data.data.map((attachment: any) => (
+                    {attachments.data.data.map((attachment: any) => {
+                      const mime = attachment.mime_type || attachment.Mime_Type || '';
+                      const isVideo = mime.startsWith('video/');
+                      const src = `/api/crm/repair-orders/${item.repairOrder.id}/attachments/${attachment.id}/download`;
+                      return (
                       <div
                         key={attachment.id}
                         className="group relative overflow-hidden rounded-lg border border-white/10 bg-black/30"
                       >
-                        <div className="aspect-square">
-                          <img
-                            src={`/api/crm/repair-orders/${item.repairOrder.id}/attachments/${attachment.id}/download`}
-                            alt={attachment.File_Name}
-                            className="h-full w-full object-cover"
-                            loading="lazy"
-                          />
+                        <div className="aspect-square bg-black">
+                          {isVideo ? (
+                            <video
+                              src={src}
+                              className="h-full w-full object-cover"
+                              controls
+                              preload="metadata"
+                            />
+                          ) : (
+                            <img
+                              src={src}
+                              alt={attachment.File_Name}
+                              className="h-full w-full object-cover"
+                              loading="lazy"
+                            />
+                          )}
                         </div>
                         <div className="absolute inset-0 flex items-center justify-center gap-2 bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
                           <a
@@ -539,7 +575,8 @@ const RepairOrderRow = ({
                           </button>
                         </div>
                       </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 )}
               </div>
@@ -638,7 +675,22 @@ const RepairOrderRow = ({
           }}
           photoUrls={
             Array.isArray(attachments.data?.data)
-              ? attachments.data.data.map((a: any) => `/api/crm/repair-orders/${item.repairOrder.id}/attachments/${a.id}/download`)
+              ? attachments.data.data
+                  .filter((a: any) => {
+                    const mime = a.mime_type || a.Mime_Type || '';
+                    return !mime || mime.startsWith('image/');
+                  })
+                  .map((a: any) => `/api/crm/repair-orders/${item.repairOrder.id}/attachments/${a.id}/download`)
+              : []
+          }
+          videoUrls={
+            Array.isArray(attachments.data?.data)
+              ? attachments.data.data
+                  .filter((a: any) => {
+                    const mime = a.mime_type || a.Mime_Type || '';
+                    return mime.startsWith('video/');
+                  })
+                  .map((a: any) => `/api/crm/repair-orders/${item.repairOrder.id}/attachments/${a.id}/download`)
               : []
           }
         />
@@ -675,11 +727,15 @@ export default function RepairOrdersPage() {
   const hasFailedBookings = failedCount > 0;
 
   const queryStatus = status === 'All' ? undefined : status;
-  const { data, isLoading, isError, error } = useRepairOrdersEnriched({
+  const { data: result, isLoading, isError, error } = useRepairOrdersEnriched({
     status: queryStatus,
     page,
     perPage: 100, // Fetch 100 per page - balance between status sorting and page load speed
   });
+
+  const data = result?.data;
+  const isFromCache = result?.fromCache ?? false;
+  const cacheTimestamp = result?.cacheTimestamp ?? null;
 
   const rows = useMemo(() => (data?.data || []) as ActiveRepairOrderItem[], [data]);
   const hasMoreRecords = data?.info?.more_records ?? false;
@@ -701,12 +757,14 @@ export default function RepairOrdersPage() {
           return 4;
         case 'Repair Approved':
           return 5;
-        case 'In Progress':
+        case 'Awaiting Parts':
           return 6;
-        case 'Ready For Pickup':
+        case 'In Progress':
           return 7;
-        case 'Completed':
+        case 'Ready For Pickup':
           return 8;
+        case 'Completed':
+          return 9;
         default:
           return 99;
       }
@@ -729,6 +787,7 @@ export default function RepairOrdersPage() {
 
   return (
     <div className="space-y-6">
+      {isFromCache && cacheTimestamp && <OfflineBanner timestamp={cacheTimestamp} />}
       {/* Failed Bookings Alert Banner */}
       {hasFailedBookings && (
         <div className="rounded-lg border border-orange-500/50 bg-orange-500/10 backdrop-blur">

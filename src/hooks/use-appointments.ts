@@ -13,7 +13,7 @@ export type Appointment = {
   scheduled_datetime: string;
   duration_minutes: number;
   status: 'scheduled' | 'in_progress' | 'completed' | 'cancelled';
-  ro_status: string | null;
+  zoho_status: string | null;
   appointment_type: 'estimated_completion' | 'scheduled_drop_off';
   notes: string | null;
   created_at: string;

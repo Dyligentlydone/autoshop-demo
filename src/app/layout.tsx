@@ -4,9 +4,15 @@ import QueryProvider from '@/providers/query-provider';
 import AppShell from '@/components/app-shell';
 
 export const metadata: Metadata = {
-  title: 'AutoShop Demo',
+  title: 'Demo Auto Shop',
   description: 'Auto repair shop CRM frontend',
 };
+
+// SECURITY: Force every page to render per-request so the auth middleware always
+// runs. Without this, Next.js statically prerenders pages and Railway's CDN serves
+// cached HTML, bypassing the PIN gate entirely.
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export default function RootLayout({
   children,

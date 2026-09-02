@@ -78,7 +78,7 @@ export default function EstimatePage() {
   // RO list for linking
   const repairOrdersQuery = useRepairOrdersEnriched();
   const existingROs = useMemo(() => {
-    const raw = (repairOrdersQuery.data as any)?.data || [];
+    const raw = (repairOrdersQuery.data as any)?.data?.data || [];
     return raw.filter((ro: any) => ro.repairOrder.status !== 'Completed');
   }, [repairOrdersQuery.data]);
 

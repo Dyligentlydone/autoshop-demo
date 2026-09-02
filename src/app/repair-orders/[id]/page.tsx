@@ -15,6 +15,7 @@ import { useDeleteAttachment } from '@/hooks/use-delete-attachment';
 import { useDeleteRepairOrder } from '@/hooks/use-delete-repair-order';
 import { DateTimePicker } from '@/components/DateTimePicker';
 import SendEstimateModal from '@/components/SendEstimateModal';
+import ApprovalAuditTrail from '@/components/ApprovalAuditTrail';
 
 const isoToDatetimeLocal = (iso: string) => {
   if (!iso) return '';
@@ -44,6 +45,7 @@ const STATUS_OPTIONS: RepairOrderStatus[] = [
   'Diagnosing',
   'Waiting Approval',
   'Repair Approved',
+  'Awaiting Parts',
   'In Progress',
   'Ready For Pickup',
   'Completed',
@@ -74,6 +76,7 @@ export default function RepairOrderDetailPage({
   const uploadAttachment = useUploadAttachment(id);
   const deleteAttachment = useDeleteAttachment(id);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const videoInputRef = useRef<HTMLInputElement>(null);
 
   const [isEditing, setIsEditing] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -458,21 +461,40 @@ export default function RepairOrderDetailPage({
           <div className="border-t border-white/10 pt-6">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-sm font-medium" style={{ color: '#d7b73f' }}>
-                Photos
+                Photos &amp; Videos
               </h3>
-              <button
-                type="button"
-                onClick={() => fileInputRef.current?.click()}
-                className="rounded-full bg-[#d7b73f]/10 px-4 py-2 text-xs font-semibold hover:bg-[#d7b73f]/20"
-                style={{ color: '#d7b73f' }}
-                disabled={uploadAttachment.isPending}
-              >
-                {uploadAttachment.isPending ? 'Uploading...' : 'Add Photos'}
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="rounded-full bg-[#d7b73f]/10 px-4 py-2 text-xs font-semibold hover:bg-[#d7b73f]/20"
+                  style={{ color: '#d7b73f' }}
+                  disabled={uploadAttachment.isPending}
+                >
+                  {uploadAttachment.isPending ? 'Uploading...' : 'Add Photos'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => videoInputRef.current?.click()}
+                  className="rounded-full bg-[#d7b73f]/10 px-4 py-2 text-xs font-semibold hover:bg-[#d7b73f]/20"
+                  style={{ color: '#d7b73f' }}
+                  disabled={uploadAttachment.isPending}
+                >
+                  {uploadAttachment.isPending ? 'Uploading...' : 'Add Videos'}
+                </button>
+              </div>
               <input
                 ref={fileInputRef}
                 type="file"
                 accept="image/*"
+                multiple
+                className="hidden"
+                onChange={(e) => handleFileSelect(e.target.files)}
+              />
+              <input
+                ref={videoInputRef}
+                type="file"
+                accept="video/*"
                 multiple
                 className="hidden"
                 onChange={(e) => handleFileSelect(e.target.files)}
@@ -502,18 +524,31 @@ export default function RepairOrderDetailPage({
                 </div>
               ) : (
                 <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-                  {attachments.data.data.map((attachment: any) => (
+                  {attachments.data.data.map((attachment: any) => {
+                    const mime = attachment.mime_type || attachment.Mime_Type || '';
+                    const isVideo = mime.startsWith('video/');
+                    const src = `/api/crm/repair-orders/${id}/attachments/${attachment.id}/download`;
+                    return (
                     <div
                       key={attachment.id}
                       className="group relative overflow-hidden rounded-lg border border-white/10 bg-black/30"
                     >
-                      <div className="aspect-square">
-                        <img
-                          src={`/api/crm/repair-orders/${id}/attachments/${attachment.id}/download`}
-                          alt={attachment.File_Name}
-                          className="h-full w-full object-cover"
-                          loading="lazy"
-                        />
+                      <div className="aspect-square bg-black">
+                        {isVideo ? (
+                          <video
+                            src={src}
+                            className="h-full w-full object-cover"
+                            controls
+                            preload="metadata"
+                          />
+                        ) : (
+                          <img
+                            src={src}
+                            alt={attachment.File_Name}
+                            className="h-full w-full object-cover"
+                            loading="lazy"
+                          />
+                        )}
                       </div>
                       <div className="absolute inset-0 flex items-center justify-center gap-2 bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
                         <a
@@ -539,7 +574,8 @@ export default function RepairOrderDetailPage({
                         </p>
                       </div>
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -609,6 +645,8 @@ export default function RepairOrderDetailPage({
             </div>
           )}
 
+          <ApprovalAuditTrail repairOrderId={id} />
+
           <div className="flex flex-wrap items-center justify-between gap-3">
             <a className="text-sm font-medium text-slate-300 hover:text-white" href="/repair-orders">
               Back to list
@@ -640,7 +678,22 @@ export default function RepairOrderDetailPage({
           }}
           photoUrls={
             Array.isArray(attachments.data?.data)
-              ? attachments.data.data.map((a: any) => `/api/crm/repair-orders/${data.id}/attachments/${a.id}/download`)
+              ? attachments.data.data
+                  .filter((a: any) => {
+                    const mime = a.mime_type || a.Mime_Type || '';
+                    return !mime || mime.startsWith('image/');
+                  })
+                  .map((a: any) => `/api/crm/repair-orders/${data.id}/attachments/${a.id}/download`)
+              : []
+          }
+          videoUrls={
+            Array.isArray(attachments.data?.data)
+              ? attachments.data.data
+                  .filter((a: any) => {
+                    const mime = a.mime_type || a.Mime_Type || '';
+                    return mime.startsWith('video/');
+                  })
+                  .map((a: any) => `/api/crm/repair-orders/${data.id}/attachments/${a.id}/download`)
               : []
           }
         />

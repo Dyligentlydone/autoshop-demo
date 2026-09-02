@@ -24,6 +24,7 @@ export type RepairOrderStatus =
   | 'Diagnosing'
   | 'Waiting Approval'
   | 'Repair Approved'
+  | 'Awaiting Parts'
   | 'In Progress'
   | 'Ready For Pickup'
   | 'Completed';

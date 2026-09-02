@@ -1,5 +1,5 @@
 /**
- * Feature Flags for AutoShop Demo
+ * Feature Flags for Demo Auto Shop
  * 
  * USE_SUPABASE_CRM: Defaults to true (Supabase). Set to 'false' to use Zoho CRM.
  * 

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import type { ActiveRepairOrderItem, RepairOrderStatus } from '@/types';
 import { useActiveRepairOrders } from '@/hooks/use-active-repair-orders';
+import OfflineBanner from '@/components/OfflineBanner';
 
 const formatVehicleDisplay = (vehicle: ActiveRepairOrderItem['vehicle']) => {
   if (!vehicle) return '';
@@ -41,6 +42,8 @@ const statusBadgeClasses = (status: RepairOrderStatus) => {
       return 'bg-violet-500/15 text-violet-200 ring-violet-400/25';
     case 'Repair Approved':
       return 'bg-yellow-400/25 text-yellow-100 ring-yellow-300/50';
+    case 'Awaiting Parts':
+      return 'bg-amber-500/20 text-amber-100 ring-amber-400/40';
     case 'In Progress':
       return 'bg-lime-500/15 text-lime-200 ring-lime-400/25';
     case 'Ready For Pickup':
@@ -53,7 +56,10 @@ const statusBadgeClasses = (status: RepairOrderStatus) => {
 };
 
 export default function DashboardPage() {
-  const { data, isLoading, isError, error } = useActiveRepairOrders();
+  const { data: result, isLoading, isError, error } = useActiveRepairOrders();
+  const data = result?.data ?? [];
+  const isFromCache = result?.fromCache ?? false;
+  const cacheTimestamp = result?.cacheTimestamp ?? null;
   const [now, setNow] = useState(() => Date.now());
   const tableHeaderRef = useRef<HTMLDivElement | null>(null);
   const [rowPx, setRowPx] = useState<number | null>(null);
@@ -99,13 +105,14 @@ export default function DashboardPage() {
 
   return (
     <div className="flex h-dvh flex-col overflow-hidden px-6 py-6">
+      {isFromCache && cacheTimestamp && <OfflineBanner timestamp={cacheTimestamp} />}
       {isLoading ? (
         <div className="surface p-4 text-sm text-slate-300">Loading…</div>
       ) : isError ? (
         <div className="surface p-4 text-sm text-red-200">
           {(error as any)?.message || 'Failed to load active repair orders'}
         </div>
-      ) : (data || []).length === 0 ? (
+      ) : data.length === 0 ? (
         <div className="surface p-6">
           <div className="text-sm text-slate-300">No diagnosing / in-progress repair orders.</div>
           <div className="mt-2 text-xs text-slate-400">
@@ -125,7 +132,7 @@ export default function DashboardPage() {
             <div className="col-span-1 text-right">View</div>
           </div>
           <div className="min-h-0 flex-1 divide-y divide-white/10 overflow-y-auto">
-            {(data || []).map((item) => {
+            {data.map((item) => {
               const vehicleDisplay = formatVehicleDisplay(item.vehicle);
               const vinDisplay = formatVin(item.vehicle?.vin);
 

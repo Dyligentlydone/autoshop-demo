@@ -21,7 +21,10 @@ export type EstimateData = {
   estimatedTotal?: number;
   estimatedCompletion?: string;
   photoUrls?: string[];
+  videoUrls?: string[];
   repairOrderId: string;
+  approvalUrl?: string;
+  complianceFooter?: string;
 };
 
 // Re-export the formatter for convenience
@@ -32,16 +35,23 @@ export const sendEstimateSMS = async (data: EstimateData) => {
     throw new Error('Twilio is not configured');
   }
 
-  const message = formatEstimateMessage(data);
+  let message = formatEstimateMessage(data);
+  
+  // Append approval link if provided
+  if (data.approvalUrl) {
+    message += `\n\n✅ Your details are here: ${data.approvalUrl}`;
+  }
 
-  // Twilio supports up to 10 media attachments per MMS
-  const mediaUrls = data.photoUrls?.slice(0, 10);
+  // Append optional compliance footer (e.g. "Reply STOP to unsubscribe…")
+  if (data.complianceFooter) {
+    message += data.complianceFooter;
+  }
 
+  // Photos are NOT attached as MMS — they're viewable on the approval page.
   const result = await twilioClient.messages.create({
     from: fromNumber,
     to: data.customerPhone,
     body: message,
-    ...(mediaUrls && mediaUrls.length > 0 ? { mediaUrl: mediaUrls } : {}),
   });
 
   return {

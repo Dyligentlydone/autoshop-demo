@@ -262,7 +262,7 @@ export default function AppointmentCalendar() {
                         ${apt.status === 'cancelled' ? 'bg-red-500/15 text-red-200' : ''}
                       `}
                     >
-                      {apt.ro_status || apt.status}
+                      {apt.zoho_status || apt.status}
                     </span>
                   </div>
                 </a>

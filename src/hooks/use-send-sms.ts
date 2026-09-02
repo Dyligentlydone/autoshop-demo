@@ -15,6 +15,8 @@ type SendSMSParams = {
     estimatedTotal?: number;
     estimatedCompletion?: string;
     photoUrls?: string[];
+    videoUrls?: string[];
+    approvalUrl?: string;
   };
   mediaUrls?: string[];
 };

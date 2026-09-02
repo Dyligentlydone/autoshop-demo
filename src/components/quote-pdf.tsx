@@ -129,12 +129,11 @@ export const QuotePDF = ({ lineItems, settings, repairOrderId, customerName, veh
     return sum + partsTotal + laborTotal;
   }, 0);
 
-  // Only sum taxable items into the tax base
+  // Only sum parts prices for taxable items — labor is never subject to sales tax
   const taxableSubtotal = lineItems.reduce((sum, item) => {
     if ((item as any).taxable === false) return sum;
     const partsTotal = (item.parts_price * item.quantity);
-    const laborTotal = item.labor_price;
-    return sum + partsTotal + laborTotal;
+    return sum + partsTotal;
   }, 0);
 
   const taxRate = settings?.tax?.enabled ? settings.tax.rate : 0;
@@ -312,12 +311,12 @@ export const QuotePDF = ({ lineItems, settings, repairOrderId, customerName, veh
 
         {/* Footer */}
         <View style={styles.footer}>
-          <Text style={{ fontWeight: 'bold', fontSize: 9, marginBottom: 3 }}>AutoShop Demo</Text>
+          <Text style={{ fontWeight: 'bold', fontSize: 9, marginBottom: 3 }}>Demo Auto Shop</Text>
           <Text>8367 Belding Rd NE, Rockford, MI 49341  |  (616) 874-9050</Text>
           <Text style={{ marginTop: 4 }}>This estimate is valid until {validUntilStr}. Prices and availability subject to change.</Text>
           <Text style={{ marginTop: 2 }}>The final cost of repairs may not exceed the estimate by more than $50 or 10%, whichever is less, unless the customer authorizes it.</Text>
           <Text style={{ marginTop: 3 }}>
-            Thank you for choosing AutoShop Demo!
+            Thank you for choosing Demo Auto Shop!
           </Text>
         </View>
       </Page>

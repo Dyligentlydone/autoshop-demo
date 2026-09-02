@@ -66,25 +66,87 @@ export const GET = async (req: NextRequest) => {
 
   try {
     if (USE_SUPABASE_CRM) {
-      // Use Supabase with joins - much simpler!
-      let query = supabase
-        .from('repair_orders')
-        .select(`
-          *,
-          vehicle:vehicles(*),
-          customer:customers(*)
-        `)
-        .order('updated_at', { ascending: false })
-        .range((parseInt(page) - 1) * parseInt(perPage), parseInt(page) * parseInt(perPage) - 1);
+      const pageNum = parseInt(page);
+      const perPageNum = parseInt(perPage);
+      const offset = (pageNum - 1) * perPageNum;
+
+      const SELECT = `*, vehicle:vehicles(*), customer:customers(*)`;
+
+      let rows: any[] = [];
+      let totalCount = 0;
 
       if (status) {
-        query = query.eq('status', status);
+        // Filtered view — simple single query
+        const { data, error, count } = await supabase
+          .from('repair_orders')
+          .select(SELECT, { count: 'exact' })
+          .eq('status', status)
+          .order('updated_at', { ascending: false })
+          .range(offset, offset + perPageNum - 1);
+        if (error) throw error;
+        rows = data || [];
+        totalCount = count ?? rows.length;
+      } else {
+        // Unfiltered view — status-priority pagination.
+        // Non-Completed orders always precede Completed ones so that page
+        // boundaries never split active work across pages.
+
+        // Count non-Completed so we know where the Completed block starts.
+        const { count: activeCount, error: countErr } = await supabase
+          .from('repair_orders')
+          .select('id', { count: 'exact', head: true })
+          .neq('status', 'Completed');
+        if (countErr) throw countErr;
+
+        const { count: completedCount, error: compCountErr } = await supabase
+          .from('repair_orders')
+          .select('id', { count: 'exact', head: true })
+          .eq('status', 'Completed');
+        if (compCountErr) throw compCountErr;
+
+        const numActive = activeCount ?? 0;
+        const numCompleted = completedCount ?? 0;
+        totalCount = numActive + numCompleted;
+
+        if (offset < numActive) {
+          // This page starts within the active block
+          const activeLimit = Math.min(perPageNum, numActive - offset);
+          const { data: aData, error: aErr } = await supabase
+            .from('repair_orders')
+            .select(SELECT)
+            .neq('status', 'Completed')
+            .order('updated_at', { ascending: false })
+            .range(offset, offset + activeLimit - 1);
+          if (aErr) throw aErr;
+          rows = aData || [];
+
+          // Backfill with Completed if active didn't fill the page
+          const remaining = perPageNum - rows.length;
+          if (remaining > 0 && numCompleted > 0) {
+            const { data: cData, error: cErr } = await supabase
+              .from('repair_orders')
+              .select(SELECT)
+              .eq('status', 'Completed')
+              .order('updated_at', { ascending: false })
+              .range(0, remaining - 1);
+            if (cErr) throw cErr;
+            rows = [...rows, ...(cData || [])];
+          }
+        } else {
+          // This page is entirely within the Completed block
+          const completedOffset = offset - numActive;
+          const { data: cData, error: cErr } = await supabase
+            .from('repair_orders')
+            .select(SELECT)
+            .eq('status', 'Completed')
+            .order('updated_at', { ascending: false })
+            .range(completedOffset, completedOffset + perPageNum - 1);
+          if (cErr) throw cErr;
+          rows = cData || [];
+        }
       }
 
-      const { data, error, count } = await query;
-      if (error) throw error;
-
-      const enriched = (data || []).map((ro: any) => ({
+      const enriched = rows.map((ro: any) => ({
         repairOrder: {
           id: ro.id,
           vehicle_id: ro.vehicle_id,
@@ -107,7 +169,10 @@ export const GET = async (req: NextRequest) => {
 
       const payload = {
         data: enriched,
-        info: { count: count || data?.length || 0 },
+        info: {
+          count: totalCount,
+          more_records: offset + rows.length < totalCount,
+        },
       };
 
       setCache(cacheKey, payload);

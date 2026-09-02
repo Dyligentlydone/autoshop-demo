@@ -64,7 +64,14 @@ export const GET = async (req: Request) => {
   try {
     if (USE_SUPABASE_CRM) {
       // Use Supabase with joins - much simpler and faster!
-      const activeStatuses = ['In Progress', 'Diagnosing', 'Dropped Off', 'Waiting Approval', 'Repair Approved'];
+      const activeStatuses = [
+        'In Progress',
+        'Diagnosing',
+        'Dropped Off',
+        'Waiting Approval',
+        'Repair Approved',
+        'Awaiting Parts',
+      ];
       
       const { data, error } = await supabase
         .from('repair_orders')
@@ -132,7 +139,8 @@ export const GET = async (req: Request) => {
           s === 'diagnosing' ||
           s === 'dropped off' ||
           s === 'waiting approval' ||
-          s === 'repair approved'
+          s === 'repair approved' ||
+          s === 'awaiting parts'
         );
       });
 

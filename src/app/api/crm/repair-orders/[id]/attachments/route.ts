@@ -69,20 +69,44 @@ export const POST = async (
       );
     }
 
-    // Validate file type (images only)
-    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/heic'];
-    if (!allowedTypes.includes(file.type)) {
+    // Validate file type (images + videos)
+    const allowedTypes = [
+      'image/jpeg', 'image/jpg', 'image/png', 'image/webp',
+      'image/heic', 'image/heif',
+      'video/mp4', 'video/quicktime', 'video/webm', 'video/x-m4v', 'video/3gpp',
+    ];
+
+    // iOS/iPad Safari sometimes reports an empty MIME type for HEIC photos.
+    // Fall back to extension-based inference so valid files aren't rejected.
+    const extMimeMap: Record<string, string> = {
+      jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png',
+      webp: 'image/webp', heic: 'image/heic', heif: 'image/heif',
+      mp4: 'video/mp4', mov: 'video/quicktime', webm: 'video/webm',
+      m4v: 'video/x-m4v', '3gp': 'video/3gpp',
+    };
+    const ext = file.name.split('.').pop()?.toLowerCase() || '';
+    const resolvedType = file.type || extMimeMap[ext] || '';
+
+    // Surfaces whether client-side compression ran. A camera original is
+    // ~8-15MB; a compressed upload should land near 1MB.
+    console.log(
+      `[attachments] received "${file.name}" ` +
+        `${(file.size / 1024 / 1024).toFixed(2)}MB ` +
+        `type="${file.type || 'none'}" resolved="${resolvedType}"`
+    );
+
+    if (!allowedTypes.includes(resolvedType)) {
       return NextResponse.json(
-        { error: 'Invalid file type. Only images are allowed (JPEG, PNG, WebP, HEIC).' },
+        { error: 'Invalid file type. Allowed: JPEG, PNG, WebP, HEIC, MP4, MOV, WebM.' },
         { status: 400 }
       );
     }
 
-    // Validate file size (20MB max)
-    const maxSize = 20 * 1024 * 1024; // 20MB in bytes
+    // Validate file size (100MB max — generous to allow short videos)
+    const maxSize = 100 * 1024 * 1024;
     if (file.size > maxSize) {
       return NextResponse.json(
-        { error: 'File too large. Maximum size is 20MB.' },
+        { error: 'File too large. Maximum size is 100MB.' },
         { status: 400 }
       );
     }
@@ -97,7 +121,7 @@ export const POST = async (
       const { data: uploadData, error: uploadError } = await supabase.storage
         .from('repair-order-attachments')
         .upload(fileName, fileBuffer, {
-          contentType: file.type,
+          contentType: resolvedType,
           upsert: false,
         });
 
@@ -111,7 +135,7 @@ export const POST = async (
           file_name: file.name,
           file_path: uploadData.path,
           file_size: file.size,
-          mime_type: file.type,
+          mime_type: resolvedType,
         })
         .select()
         .single();

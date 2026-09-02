@@ -30,12 +30,32 @@ const resolvePhotoUrls = async (repairOrderId: string): Promise<string[]> => {
 };
 
 // Normalize phone to E.164 format for Twilio (e.g. "616-970-1109" → "+16169701109")
-const normalizePhoneE164 = (phone: string): string => {
-  const digits = phone.replace(/\D/g, '');
-  if (digits.startsWith('1') && digits.length === 11) return `+${digits}`;
-  if (digits.length === 10) return `+1${digits}`;
-  if (phone.startsWith('+')) return phone; // already E.164
-  return `+${digits}`;
+// Returns null if the number is not a valid US/Canada phone number
+const normalizePhoneE164 = (phone: string): string | null => {
+  if (!phone || typeof phone !== 'string') return null;
+  const trimmed = phone.trim();
+
+  // Already E.164 — validate it has 10-15 digits after the +
+  if (trimmed.startsWith('+')) {
+    const digitsOnly = trimmed.slice(1).replace(/\D/g, '');
+    if (digitsOnly.length < 10 || digitsOnly.length > 15) return null;
+    return `+${digitsOnly}`;
+  }
+
+  const digits = trimmed.replace(/\D/g, '');
+
+  // US/Canada: 11 digits starting with 1
+  if (digits.length === 11 && digits.startsWith('1')) {
+    return `+${digits}`;
+  }
+  // US/Canada: 10 digits (no country code)
+  if (digits.length === 10) {
+    // First digit (area code) must be 2-9 per NANP rules
+    if (digits[0] === '0' || digits[0] === '1') return null;
+    return `+1${digits}`;
+  }
+
+  return null;
 };
 
 export const POST = async (req: NextRequest) => {
@@ -55,34 +75,88 @@ export const POST = async (req: NextRequest) => {
     }
 
     const to = normalizePhoneE164(body.to);
+    if (!to) {
+      return NextResponse.json(
+        {
+          error: 'Invalid phone number',
+          details: 'Please enter a valid US/Canada phone number (10 digits, e.g. 616-555-1234).',
+        },
+        { status: 400 }
+      );
+    }
 
     let twilioResult;
     let messageBody;
     let messageType = type || 'general';
 
     if (type === 'estimate' && estimateData) {
-      // Get public URLs for photos so Twilio can send them as MMS
-      const includePhotos = estimateData.photoUrls?.length > 0;
-      const publicPhotoUrls = includePhotos
-        ? await resolvePhotoUrls(repairOrderId)
-        : [];
+      // Use the approval URL passed from the modal, or generate a new one if not provided
+      let approvalUrl = estimateData.approvalUrl || '';
+      
+      if (!approvalUrl && repairOrderId && customerId) {
+        try {
+          const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+          console.log('Generating approval token for repair order:', repairOrderId);
+          const tokenRes = await fetch(`${baseUrl}/api/approval-tokens/generate`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              repairOrderId,
+              customerId,
+              expiryDays: 30,
+            }),
+          });
+
+          const tokenData = await tokenRes.json();
+          console.log('Token generation response:', tokenData);
+
+          if (tokenRes.ok && tokenData.approvalUrl) {
+            approvalUrl = tokenData.approvalUrl;
+            console.log('Approval URL generated:', approvalUrl);
+          } else {
+            console.error('Token generation failed:', tokenData.error || 'Unknown error');
+          }
+        } catch (err) {
+          console.error('Failed to generate approval token:', err);
+        }
+      }
+
+      // Photos are referenced in the message body (so the customer knows
+      // there are photos to view) but NOT attached as MMS — they live on
+      // the approval page. Keeps every send as a cheap A2P SMS.
+
+      // TCPA-style compliance footer + shop sign-off appended only on the
+      // actual send (so it's not shown in the preview/sample in the modal).
+      const complianceFooter =
+        '\n\nReply STOP to unsubscribe or HELP for assistance anytime!' +
+        '\n\n- Demo Auto Shop';
 
       // Use custom edited message if provided, otherwise generate from template
       if (message) {
         // User edited the message in the modal — send their version
+        // Append approval link if available, then compliance footer
+        let finalMessage = approvalUrl
+          ? `${message}\n\nYour details are here: ${approvalUrl}`
+          : message;
+        finalMessage += complianceFooter;
+
         twilioResult = await sendSMS({
           to,
-          message,
-          mediaUrls: publicPhotoUrls,
+          message: finalMessage,
         });
-        messageBody = message;
+        messageBody = finalMessage;
       } else {
-        // Send formatted estimate from template
+        // Send formatted estimate from template with approval link
         twilioResult = await sendEstimateSMS({
           ...estimateData,
           customerPhone: to,
           repairOrderId,
-          photoUrls: publicPhotoUrls,
+          // Pass photo + video counts through so the body mentions them.
+          // sendEstimateSMS skips MMS attachment for cost.
+          photoUrls: estimateData.photoUrls || [],
+          videoUrls: estimateData.videoUrls || [],
+          approvalUrl,
+          complianceFooter,
         });
         messageBody = twilioResult.body;
       }

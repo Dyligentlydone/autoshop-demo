@@ -30,12 +30,11 @@ export const GET = async (req: NextRequest) => {
       const laborPrice = item.labor_price;
       return sum + partsPrice + laborPrice;
     }, 0);
-    // Sum prices for taxable items only (used by tax calculation in the UI)
+    // Sum parts prices for taxable items only — labor is never subject to sales tax
     const taxableTotal = lineItems.reduce((sum, item) => {
       if (item.taxable === false) return sum;
       const partsPrice = item.parts_price * item.quantity;
-      const laborPrice = item.labor_price;
-      return sum + partsPrice + laborPrice;
+      return sum + partsPrice;
     }, 0);
     const totalProfit = totalPrice - totalCost;
     const profitMargin = totalPrice > 0 ? (totalProfit / totalPrice) * 100 : 0;

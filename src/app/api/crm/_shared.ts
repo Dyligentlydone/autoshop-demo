@@ -45,6 +45,7 @@ const normalizeRepairOrderStatus = (status: string | undefined): RepairOrderStat
     case 'Diagnosing':
     case 'Waiting Approval':
     case 'Repair Approved':
+    case 'Awaiting Parts':
     case 'In Progress':
     case 'Ready For Pickup':
     case 'Completed':
